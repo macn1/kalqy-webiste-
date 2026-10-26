@@ -1,0 +1,60 @@
+/* Kalqy design tokens — single source of truth. Components use semantic tokens only.
+   Contrast ratios were computed with scripts/contrast.mjs (see docs/brand-spec.md). */
+:root {
+  /* Playful Adventure palette (raw) */
+  --adventure-blue: #39a9f9;
+  --sunshine-yellow: #ffd34e;
+  --playful-coral: #ff8c78;
+  --fresh-mint: #b9e8c9;
+  --warm-cream: #fff9ed;
+  --deep-play-navy: #20304a;
+  --white: #ffffff;
+
+  /* Semantic */
+  --color-brand-primary: var(--adventure-blue); /* fills; pair with navy text (5.19:1), never white (2.56:1) */
+  --color-brand-text: #0b6aae; /* blue for links/text on cream/white (5.4–5.7:1) */
+  --color-accent-yellow: var(--sunshine-yellow);
+  --color-accent-coral: var(--playful-coral);
+  --color-coral-text: #b8412c; /* coral for text on cream (5.23:1) */
+  --color-accent-mint: var(--fresh-mint);
+
+  --color-background: var(--warm-cream);
+  --color-surface: var(--white);
+  --color-text-primary: var(--deep-play-navy);
+  --color-text-secondary: #4b5a70;
+  --color-text-on-dark: #ffffff;
+  --color-text-on-dark-muted: #c9d3e3;
+
+  --color-border: #e8e4da;
+  --color-focus: var(--deep-play-navy);
+  --color-focus-ring: var(--sunshine-yellow);
+  --color-error: #b3261e;
+  --color-success: #17623a;
+
+  --font-display: var(--font-fredoka), "Trebuchet MS", system-ui, sans-serif;
+  --font-body: var(--font-jakarta), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-card: 24px;
+  --radius-small: 14px;
+  --radius-button: 999px;
+
+  --shadow-card: 0 12px 32px rgba(32, 48, 74, 0.08);
+  --shadow-card-hover: 0 18px 42px rgba(32, 48, 74, 0.13);
+
+  --container-max-width: 1200px;
+  --gutter: 20px;
+  --section-spacing: 56px;
+  --header-height: 72px;
+  --transition-standard: 200ms ease;
+}
+@media (min-width: 768px) {
+  :root {
+    --gutter: 32px;
+    --section-spacing: 80px;
+  }
+}
+@media (min-width: 1100px) {
+  :root {
+    --section-spacing: 96px;
+  }
+}
