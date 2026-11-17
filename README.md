@@ -1,6 +1,6 @@
 # Kalqy website (new, independent project)
 
-A new marketing site for Kalqy, built with Next.js 15 (App Router) and TypeScript. It is separate from the existing kalqy.in site: that site was only read, never modified.
+A new marketing site for Kalqy, built with Vite, React 19 (JSX) and React Router. It is separate from the existing kalqy.in site: that site was only read, never modified.
 
 ## Run it
 ```bash
@@ -14,8 +14,8 @@ Requires Node 20+. Fonts are fetched from Google Fonts at build time.
 
 ## Configure
 Copy `.env.example` to `.env.local`.
-- `NEXT_PUBLIC_SITE_URL`: final domain (canonical URLs, sitemap, Open Graph).
-- `NEXT_PUBLIC_FORM_ENDPOINT`: optional. JSON POST endpoint for the contact and school forms. If unset, the forms validate and open the visitor's email app, and never claim a send.
+- `VITE_SITE_URL`: final domain (canonical URLs, sitemap, Open Graph).
+- `VITE_FORM_ENDPOINT`: optional. JSON POST endpoint for the contact and school forms. If unset, the forms validate and open the visitor's email app, and never claim a send.
 
 ## Where things live
 | Need to change | File |

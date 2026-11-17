@@ -1,6 +1,8 @@
 /* Kalqy design tokens — single source of truth. Components use semantic tokens only.
    Contrast ratios were computed with scripts/contrast.mjs (see docs/brand-spec.md). */
 :root {
+  --font-fredoka: "Fredoka";
+  --font-jakarta: "Plus Jakarta Sans";
   /* Playful Adventure palette (raw) */
   --adventure-blue: #39a9f9;
   --sunshine-yellow: #ffd34e;

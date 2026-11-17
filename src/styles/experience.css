@@ -965,3 +965,116 @@ h2 {
     background: none;
   }
 }
+
+/* ---------- Header: reference design (announcement bar, centered nav, blue CTA) ---------- */
+:root {
+  --announce-height: 34px;
+  --header-bar-height: 72px;
+  --header-height: 106px;
+  --cta-blue: #2f5bea;
+}
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #ececf3;
+}
+.site-header::before {
+  background: #fff;
+}
+.announce-bar {
+  height: var(--announce-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  background: #ece9fb;
+  color: #3a3f63;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.site-header__bar {
+  height: var(--header-bar-height);
+  position: relative;
+}
+.brand-link img {
+  border-radius: 0;
+}
+.nav-desktop {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nav-pill,
+.nav-link[aria-current="page"]::after {
+  display: none;
+}
+.nav-link {
+  padding: 10px 16px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #1f2340;
+}
+.nav-link.is-lit,
+.nav-link.is-lit:hover,
+.nav-link.is-lit[aria-current="page"] {
+  color: var(--cta-blue);
+}
+.header-cta {
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: 10px;
+  background: var(--cta-blue);
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  white-space: nowrap;
+  display: none;
+}
+.header-cta:hover {
+  background: #2449c4;
+  color: #fff;
+}
+/* tablet + laptop: CTA visible */
+@media (min-width: 640px) {
+  .header-cta {
+    display: inline-flex;
+  }
+}
+@media (min-width: 1040px) {
+  .nav-desktop {
+    display: block;
+  }
+}
+.menu-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1.5px solid #d9dbe8;
+  background: #fff;
+  color: #1f2340;
+}
+.mobile-nav {
+  inset: calc(var(--announce-height) + var(--header-bar-height)) 0 0 0;
+  background: #fff;
+}
+.mobile-nav .nav-link {
+  font-size: 1.15rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 12px;
+}
+.mobile-nav .nav-link[aria-current="page"] {
+  background: #ece9fb;
+}
+@media (max-width: 420px) {
+  .announce-bar {
+    font-size: 0.72rem;
+  }
+}

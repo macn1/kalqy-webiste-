@@ -1,0 +1,33 @@
+export const primaryNav = [
+  { label: "How It Works", href: "/product" },
+  { label: "Explore", href: "/games" },
+  { label: "For Parents", href: "/product#parents" },
+  { label: "For Schools", href: "/schools" },
+  { label: "About", href: "/about" },
+];
+export const headerCta = { label: "Download Now", href: "/product#download" };
+export const announcement = "Discover a new way for children to learn through play.";
+export const footerGroups = [
+  {
+    title: "Explore",
+    links: [
+      { label: "Games", href: "/games" },
+      { label: "How it works", href: "/product" },
+      { label: "Testimonials", href: "/testimonials" },
+      { label: "FAQ", href: "/faq" },
+    ],
+  },
+  {
+    title: "Families & schools",
+    links: [
+      { label: "For parents", href: "/product#parents" },
+      { label: "For schools & educators", href: "/schools" },
+      { label: "About Kalqy", href: "/about" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+];
+export const legalNav = [
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+];
