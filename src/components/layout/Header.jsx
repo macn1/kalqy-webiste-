@@ -75,12 +75,12 @@ export function Header() {
       <div className="container site-header__bar">
         <Link href="/" className="brand-link" aria-label="Kalqy home">
           <Image
-            src="/images/brand/kalqy-logo.png"
+            src="/images/redesign/logo.png"
             alt="Kalqy"
-            width={250}
-            height={76}
+            width={128}
+            height={39}
             priority
-            style={{ height: 42, width: "auto" }}
+            style={{ height: 39, width: "auto" }}
           />
         </Link>
 
@@ -121,7 +121,11 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen((o) => !o)}
+            onClick={() => {
+              // The header scrolls with the page now, so go to the top first; the full-screen menu opens just below it.
+              if (!open) window.scrollTo({ top: 0 });
+              setOpen((o) => !o);
+            }}
           >
             <Icon name={open ? "close" : "menu"} />
           </button>

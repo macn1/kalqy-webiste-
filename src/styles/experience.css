@@ -971,7 +971,7 @@ h2 {
   --announce-height: 34px;
   --header-bar-height: 72px;
   --header-height: 106px;
-  --cta-blue: #2f5bea;
+  --cta-blue: #203eff;
 }
 .site-header {
   background: #fff;
@@ -1038,7 +1038,7 @@ h2 {
   display: none;
 }
 .header-cta:hover {
-  background: #2449c4;
+  background: #1a33d6;
   color: #fff;
 }
 /* tablet + laptop: CTA visible */

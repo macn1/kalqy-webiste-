@@ -1,0 +1,32 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1440" height="1254" viewBox="0 0 1440 1254" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Premium BG &#226;&#128;&#148; How it works">
+<mask id="mask0_0_4" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="21" width="1440" height="1233">
+<path id="Wave mask" d="M1440 60.5C1180.8 8.80003 979.2 8.80003 720 55C460.8 101.2 259.2 101.2 0 46.2V1254H1440V60.5Z" fill="black"/>
+</mask>
+<g mask="url(#mask0_0_4)">
+<g id="Soft light" filter="url(#filter0_f_0_4)">
+<circle cx="1320" cy="98" r="320" fill="#FFC24D" fill-opacity="0.2"/>
+</g>
+<path id="Wave fill" d="M1440 60.5C1180.8 8.80003 979.2 8.80003 720 55C460.8 101.2 259.2 101.2 0 46.2V1254H1440V60.5Z" fill="url(#paint0_linear_0_4)"/>
+<g id="Soft light_2" filter="url(#filter1_f_0_4)">
+<circle cx="80" cy="1040" r="280" fill="#B9A6FF" fill-opacity="0.16"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_0_4" x="820" y="-402" width="1000" height="1000" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="90" result="effect1_foregroundBlur_0_4"/>
+</filter>
+<filter id="filter1_f_0_4" x="-370" y="590" width="900" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="85" result="effect1_foregroundBlur_0_4"/>
+</filter>
+<linearGradient id="paint0_linear_0_4" x1="38.1963" y1="197.617" x2="1132.63" y2="1076.36" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FCFAF6"/>
+<stop offset="1" stop-color="#F6F3EC"/>
+</linearGradient>
+</defs>
+</svg>

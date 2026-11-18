@@ -1,16 +1,13 @@
-import Link from "@/components/common/Link";
-import { FAQAccordion } from "@/components/faq/FAQAccordion";
-import { SectionHeading } from "@/components/layout/SectionHeading";
-import { ClassroomSection } from "@/components/home/ClassroomSection";
-import { FinalCTA } from "@/components/home/FinalCTA";
-import { GamesShowcase } from "@/components/home/GamesShowcase";
-import { HeroSection } from "@/components/home/HeroSection";
-import { HowItWorks } from "@/components/home/HowItWorks";
-import { LearningBenefits } from "@/components/home/LearningBenefits";
-import { ParentsEducatorsSection } from "@/components/home/ParentsEducatorsSection";
-import { ProductDemoSection } from "@/components/home/ProductDemoSection";
-import { TrustSection } from "@/components/home/TrustSection";
-import { faqs } from "@/data/faq";
+import { WelcomeBenefits } from "@/components/home/WelcomeBenefits";
+import { LearningKitOffer } from "@/components/home/LearningKitOffer";
+import { ParentAppSlideshow } from "@/components/home/ParentAppSlideshow";
+import { HowItWorksSteps } from "@/components/home/HowItWorksSteps";
+import { ExperienceLibrary } from "@/components/home/ExperienceLibrary";
+import { SeeItInAction } from "@/components/home/SeeItInAction";
+import { PurposeReading, KalqyDifference } from "@/components/home/PurposeDifference";
+import { ParentsSection, EducatorsSection, GallerySection } from "@/components/home/AudienceGallery";
+import { ProductInfo, FaqSection, TrustSection } from "@/components/home/InfoFaqTrust";
+import { ReviewsSection, ClosingInvitation } from "@/components/home/ReviewsClosing";
 import { pageMeta } from "@/utils/metadata";
 export const metadata = pageMeta(
   "Movement-based learning games for young children",
@@ -20,24 +17,22 @@ export const metadata = pageMeta(
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <ProductDemoSection />
-      <GamesShowcase />
-      <LearningBenefits />
-      <HowItWorks />
-      <ParentsEducatorsSection />
-      <ClassroomSection />
+      <WelcomeBenefits />
+      <LearningKitOffer />
+      <ParentAppSlideshow />
+      <HowItWorksSteps />
+      <ExperienceLibrary />
+      <SeeItInAction />
+      <PurposeReading />
+      <KalqyDifference />
+      <ParentsSection />
+      <EducatorsSection />
+      <GallerySection />
+      <ProductInfo />
+      <FaqSection />
       <TrustSection />
-      <section className="section section--sheet" aria-labelledby="faq-title">
-        <div className="container">
-          <SectionHeading id="faq-title" eyebrow="Questions" title="Quick answers" />
-          <FAQAccordion items={faqs.slice(0, 4)} />
-          <p style={{ marginTop: 24 }} data-reveal>
-            <Link href="/faq">See all questions</Link>
-          </p>
-        </div>
-      </section>
-      <FinalCTA />
+      <ReviewsSection />
+      <ClosingInvitation />
     </>
   );
 }

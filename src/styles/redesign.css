@@ -1,0 +1,793 @@
+/* Kalqy Sales redesign (Figma "KALQY Sales — Homepage · Desktop").
+   Loaded last: global tokens live in tokens.css; this file holds redesign sections and site-wide overrides. */
+
+/* ---------- Global overrides ---------- */
+body {
+  font-size: 1rem;
+  line-height: 1.6;
+  background: #fff;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+.btn {
+  border-radius: 14px;
+}
+
+/* ---------- Shared bits ---------- */
+.rd-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.rd-chip--ink {
+  background: var(--rd-ink);
+  color: #fff;
+}
+.rd-chip--yellow {
+  background: var(--sunshine-yellow);
+  color: var(--rd-ink);
+  font-size: 0.6875rem;
+  padding: 6px 12px;
+}
+.rd-chip--pink {
+  background: #ff017b;
+  color: #fff; /* design shows ink on pink (3.6:1); white gives 4.0:1, closer to AA for 12px bold */
+}
+.rd-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 15px 22px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform var(--transition-standard), background var(--transition-standard);
+}
+.rd-btn:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.rd-btn--primary {
+  background: var(--adventure-blue);
+  color: #fff;
+}
+.rd-btn--primary:hover {
+  background: #1a33d6;
+  color: #fff;
+}
+.rd-btn--outline {
+  background: #fff;
+  color: var(--adventure-blue);
+  border: 1.5px solid var(--adventure-blue);
+}
+
+/* ---------- Welcome (hero) ---------- */
+.rd-hero {
+  background: #fef0c8 url("/images/redesign/hero-bg.svg") center / cover no-repeat;
+  overflow: hidden;
+}
+.rd-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
+  gap: 64px;
+  align-items: center;
+  /* fluid side padding (about 5.5% of the width, 80px at 1440) so content sits close to the edges at any width */
+  padding: 56px clamp(40px, 5.55vw, 160px) 96px;
+  min-height: 680px;
+}
+.rd-hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.rd-hero h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--rd-ink);
+  text-wrap: initial;
+}
+.rd-hero__accent {
+  display: block;
+  color: var(--adventure-blue);
+}
+.rd-hero__lead {
+  margin: 0;
+  font-size: 1.1875rem;
+  line-height: 1.55;
+  color: var(--rd-secondary);
+}
+.rd-price-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+.rd-price-line__old {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #d4000b; /* design #ff0105 is 4.0:1 on cream; darkened to pass AA at this size */
+}
+.rd-price-line__new {
+  font-size: clamp(2.75rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  color: #b87500; /* design #ffaa20 fails contrast on cream (2.0:1); this is 3.9:1, fine for 64px display text */
+}
+.rd-price-line__note {
+  flex-basis: 100%;
+  font-weight: 500;
+  color: var(--rd-secondary);
+}
+.rd-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.rd-hero__count {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--rd-ink);
+}
+.rd-dots {
+  display: inline-flex;
+  gap: 10px;
+}
+.rd-dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
+  background: #d2d3d8;
+}
+.rd-dots i.is-on {
+  width: 36px;
+  background: var(--rd-ink);
+}
+
+/* Visual: fixed 616x520 stage scaled down on narrow screens */
+.rd-hero__visual {
+  display: flex;
+  justify-content: flex-end; /* hug the right padding instead of floating in the middle of the column on wide screens */
+}
+.rd-visual {
+  position: relative;
+  width: 616px;
+  height: 520px;
+  flex: none;
+}
+.rd-visual > * {
+  position: absolute;
+}
+.rd-visual__glow {
+  left: 80px;
+  top: 32px;
+  width: 455px;
+  max-width: none;
+  height: 455px;
+  transform: scale(1.43);
+  pointer-events: none;
+}
+.rd-visual__box {
+  left: 79px;
+  top: 104px;
+  width: 319px;
+  height: 253px;
+  border: 5px solid #000;
+  border-radius: 26px;
+  overflow: hidden;
+  background: linear-gradient(149deg, #203eff 14%, #00bdb6 86%);
+  box-shadow: 0 30px 52px rgba(0, 13, 77, 0.35);
+}
+.rd-visual__box-band {
+  position: absolute;
+  left: 55px;
+  top: -5px;
+  width: 271px;
+  height: 43px;
+  background: var(--sunshine-yellow);
+}
+.rd-visual__box img {
+  position: absolute;
+  left: -5px;
+  top: 38px;
+  width: 318px;
+  height: 212px;
+  max-width: none;
+  object-fit: cover;
+}
+.rd-visual__photo {
+  left: 2px;
+  top: 33px;
+  width: 206px;
+  height: 141px;
+  border: 4px solid #fff;
+  border-radius: 19px;
+  overflow: hidden;
+  transform: rotate(5deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+.rd-visual__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: none;
+}
+.rd-visual__cube {
+  left: 17px;
+  top: 363px;
+  width: 69px;
+  height: 69px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: var(--sunshine-yellow);
+  color: var(--adventure-blue);
+  font-size: 32px;
+  font-weight: 700;
+  transform: rotate(12deg);
+}
+.rd-visual__ring {
+  left: 124px;
+  top: 422px;
+  width: 76px;
+  height: 76px;
+  max-width: none;
+}
+.rd-visual__board {
+  left: 245px;
+  top: 446px;
+  width: 141px;
+  height: 39px;
+  border-radius: 20px;
+  background: #45bc04;
+  transform: rotate(-3deg);
+}
+.rd-visual__phone {
+  left: 410px;
+  top: 53px;
+  transform: rotate(6deg);
+}
+
+/* Parent-app mini screen (sizes are intentionally tiny: this is a thumbnail) */
+.rd-phone {
+  width: 159px;
+  height: 325px;
+  padding: 4px;
+  border-radius: 24px;
+  background: var(--rd-ink);
+  box-shadow: 0 8px 19px -5px rgba(32, 33, 58, 0.28);
+}
+.rd-phone p {
+  margin: 0;
+}
+.rd-phone__screen {
+  height: 100%;
+  padding: 14px 8px 10px;
+  border-radius: 19px;
+  background: #faf9f6;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  line-height: normal;
+}
+.rd-phone__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.rd-phone__muted {
+  font-size: 5.8px;
+  font-weight: 500;
+  color: var(--rd-secondary);
+}
+.rd-phone__name {
+  font-size: 7.9px;
+  font-weight: 600;
+}
+.rd-phone__avatar {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background: var(--sunshine-yellow);
+  font-size: 7.4px;
+  font-weight: 700;
+}
+.rd-phone__score {
+  padding: 7px;
+  border-radius: 8px;
+  background: var(--adventure-blue);
+  color: var(--rd-mist);
+  font-size: 5.8px;
+  font-weight: 500;
+}
+.rd-phone__score-row {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+.rd-phone__score-row strong {
+  font-size: 15.9px;
+  color: #fff;
+}
+.rd-phone__score-row span {
+  font-size: 6.9px;
+  font-weight: 600;
+  color: var(--sunshine-yellow);
+}
+.rd-phone__label {
+  font-size: 6.3px;
+  font-weight: 700;
+}
+.rd-phone__game {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 6px;
+  border-radius: 6px;
+}
+.rd-phone__game-name {
+  font-size: 6.3px;
+  font-weight: 600;
+}
+.rd-phone__stars {
+  font-size: 5.8px;
+  font-weight: 700;
+  color: var(--sunshine-yellow);
+}
+.rd-phone__game strong {
+  font-size: 7.9px;
+  color: var(--adventure-blue);
+}
+.rd-phone__next {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 6px;
+  border-radius: 6px;
+  background: #b2ebe9;
+  font-size: 5.8px;
+  font-weight: 600;
+}
+
+/* ---------- Three reasons ---------- */
+.rd-reasons {
+  background: #fff;
+  padding: 48px 80px;
+}
+.rd-reasons__grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+.rd-reasons__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.rd-reasons h2 {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.14;
+}
+.rd-reasons p {
+  margin: 0;
+  color: var(--rd-secondary);
+}
+
+/* ---------- Learning Kit offer ---------- */
+.rd-offer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 112px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+.rd-offer__head {
+  text-align: center;
+}
+.rd-offer__head h2 {
+  margin: 0 0 14px;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-wrap: initial;
+}
+.rd-offer__head h2 span {
+  display: block;
+  color: var(--rd-primary);
+}
+.rd-offer__head p {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--rd-secondary);
+}
+.rd-offer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  gap: 24px;
+  align-items: start;
+}
+.rd-offer__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.rd-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 60%), var(--item-bg);
+  box-shadow: 0 18px 20px rgba(32, 33, 59, 0.08);
+}
+.rd-item__visual {
+  position: relative;
+  flex: none;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+}
+.rd-item__leo {
+  position: absolute;
+  left: 22px;
+  top: 12px;
+  width: 75px;
+  height: 108px;
+  object-fit: contain;
+  max-width: none;
+}
+.rd-item__game {
+  position: absolute;
+  top: 24px;
+  width: 72px;
+  height: 72px;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  object-fit: cover;
+  max-width: none;
+}
+.rd-item__game--a {
+  left: -10px;
+}
+.rd-item__game--b {
+  left: 58px;
+}
+.rd-item__game--c {
+  left: 24px;
+}
+.rd-item__app {
+  position: absolute;
+  left: 32px;
+  top: 8px;
+  width: 55px;
+  height: 103px;
+  padding: 3px;
+  border-radius: 10px;
+  background: var(--rd-ink);
+}
+.rd-item__app > div {
+  position: relative;
+  height: 100%;
+  border-radius: 8px;
+  background: #fff;
+}
+.rd-item__app i {
+  position: absolute;
+  left: 5px;
+  height: 5px;
+  border-radius: 3px;
+}
+.rd-item__copy h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px;
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0;
+}
+.rd-item__copy h3 span {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--rd-primary);
+}
+.rd-item__copy p {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--rd-ink);
+  opacity: 0.8;
+}
+.rd-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 28px;
+  background: linear-gradient(180deg, #ffe088, #ffcb3a);
+  box-shadow: 0 18px 20px rgba(32, 33, 59, 0.08);
+  color: var(--rd-ink);
+}
+.rd-price h3 {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.rd-price__was {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: rgba(32, 33, 58, 0.7);
+}
+.rd-price__was s {
+  color: #c4000f;
+}
+.rd-price__now {
+  margin: 4px 0 0;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.rd-price hr {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background: #414258;
+}
+.rd-price__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.rd-price__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+.rd-price__list span {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 11px;
+  background: var(--rd-tiffany);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.rd-price__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 16px 24px;
+  border-radius: 14px;
+  background: var(--rd-mist);
+  color: var(--rd-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.rd-price__btn:hover {
+  background: #fff;
+  color: var(--rd-ink);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .rd-hero__inner {
+    grid-template-columns: 1fr;
+    padding: 48px 40px 72px;
+    gap: 40px;
+  }
+  .rd-hero__copy {
+    max-width: 640px;
+  }
+  .rd-reasons,
+  .rd-offer {
+    padding-inline: 40px;
+  }
+  .rd-offer__grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 720px) {
+  .rd-hero__inner {
+    padding: 32px 20px 56px;
+  }
+  .rd-visual {
+    zoom: 0.6;
+  }
+  .rd-reasons,
+  .rd-offer {
+    padding: 56px 20px;
+  }
+  .rd-reasons__grid {
+    grid-template-columns: 1fr;
+  }
+  .rd-price-line__old {
+    font-size: 1.75rem;
+  }
+  .rd-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rd-price {
+    padding: 24px;
+  }
+  .rd-price__now {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 420px) {
+  .rd-visual {
+    zoom: 0.5;
+  }
+}
+
+/* Hero mascot and speech chip (bottom right of the visual, as in the reference) */
+.rd-visual__mascot {
+  left: 513px;
+  top: 322px;
+  width: 103px;
+  height: 214px;
+  max-width: none;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 14px rgba(32, 33, 58, 0.18));
+}
+.rd-visual__chip {
+  left: 397px;
+  top: 285px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(32, 33, 58, 0.18);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--rd-ink);
+}
+
+/* Fade the bottom of the hero into the white section below so it doesn't end in a hard edge. */
+.rd-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 220px;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #fff 92%);
+  pointer-events: none;
+}
+
+/* Learning Kit offer: compact so the whole section fits in one screen (header + section within 100vh at desktop sizes). */
+.rd-offer {
+  padding-block: clamp(28px, 5vh, 64px);
+  gap: clamp(22px, 4vh, 40px);
+}
+.rd-offer__head h2 {
+  margin-bottom: clamp(8px, 1.4vh, 14px);
+  font-size: clamp(2rem, min(4vw, 6.2vh), 3.5rem);
+}
+.rd-offer__head p {
+  font-size: clamp(0.9375rem, 2vh, 1.125rem);
+}
+.rd-offer__items {
+  gap: 12px;
+}
+.rd-item {
+  padding: 14px 18px;
+}
+.rd-item__copy .rd-item__note {
+  margin: 6px 0 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--playful-coral);
+  opacity: 1;
+}
+.rd-price {
+  gap: 14px;
+  padding: 28px 32px;
+}
+.rd-price__now {
+  font-size: clamp(3rem, 8vh, 4rem);
+}
+.rd-price__list {
+  gap: 14px;
+}
+.rd-offer__head p {
+  max-width: 1280px; /* one line at desktop width, as in the design reference */
+}
+
+/* Header scrolls away with the page (it used to be sticky). */
+.site-header {
+  position: relative;
+  top: auto;
+}
+html {
+  scroll-padding-top: 16px; /* no sticky header to clear when jumping to anchors */
+}
+
+/* One shared side gutter for the hero, the three reasons and the Learning Kit offer, so content lines up
+   down the page at every width (80px at 1440). The old 1280px / 1440px max-width caps are removed for these. */
+:root {
+  --rd-gutter: clamp(40px, 5.55vw, 160px);
+}
+@media (max-width: 1180px) {
+  :root {
+    --rd-gutter: 40px;
+  }
+}
+@media (max-width: 720px) {
+  :root {
+    --rd-gutter: 20px;
+  }
+}
+.rd-hero__inner,
+.rd-reasons,
+.rd-offer {
+  padding-inline: var(--rd-gutter);
+}
+.rd-reasons__grid {
+  max-width: none;
+}
+.rd-offer {
+  max-width: none;
+  margin-inline: 0;
+}
