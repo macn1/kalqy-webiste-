@@ -130,6 +130,14 @@ export function ParentAppSlideshow() {
             <small>Counted to 20 by jumping</small>
           </div>
         </div>
+        <div className="rd-float rd-float--b rd-tab-only">
+          <Image src="/images/redesign/app-dot-green.svg" width={10} height={10} />
+          <div>
+            <strong>Balance +12%</strong>
+            <small>This week</small>
+          </div>
+        </div>
+        <p className="rd-app__sample rd-tab-only">Sample data shown</p>
         <span className="rd-app__chip">See your child’s progress in the Parent App!</span>
         <Image className="rd-app__boy" src="/images/brand/kalqy-mascot.webp" width={173} height={259} />
       </div>

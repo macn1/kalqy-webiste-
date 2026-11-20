@@ -26,6 +26,17 @@ export function ProductInfo() {
           </div>
         ))}
       </dl>
+      <div className="rd-info__guide">
+        <span className="rd-info__chip">Got a question? Find it here!</span>
+        <Image
+          className="rd-info__boy"
+          src="/images/brand/730330632142dbf872a1859b9a9c25e0d279b137.png"
+          alt=""
+          width={184}
+          height={290}
+          loading="lazy"
+        />
+      </div>
     </section>
   );
 }
@@ -74,7 +85,10 @@ export function FaqSection() {
     <section className="rd-sec rd-bgsec rd-faq" id="faq" style={{ "--rd-bg": 'url("/images/redesign/bg-faq.webp")' }} aria-labelledby="faq-title">
       <div className="rd-faq__inner">
         <div className="rd-faq__intro">
-          <p className="rd-eyebrow rd-eyebrow--blue">FAQ</p>
+          <p className="rd-eyebrow rd-eyebrow--blue">
+            <span className="rd-tab-hide">FAQ</span>
+            <span className="rd-tab-only">PLAYING KALQY</span>
+          </p>
           <h2 id="faq-title" className="rd-h2 rd-h2--44">
             How to play,
             <br />
@@ -120,6 +134,7 @@ export function TrustSection() {
     <section className="rd-sec rd-bgsec rd-trust" style={{ "--rd-bg": 'url("/images/redesign/bg-seen.webp")' }} aria-labelledby="trust-title">
       <header className="rd-trust__head">
         <div>
+          <span className="rd-trust__pill rd-tab-only">AS SEEN ON SCREEN &amp; ON STAGE</span>
           <h2 id="trust-title" className="rd-h2 rd-h2--56">
             Trusted on screen.
             <span>Proven on the expo floor.</span>
@@ -139,7 +154,11 @@ export function TrustSection() {
         </div>
       </header>
       <article className="rd-episode">
+        <Image className="rd-trust__boy rd-tab-only" src="/images/brand/kalqy-mascot.webp" alt="" width={173} height={259} loading="lazy" />
         <div className="rd-episode__shot">
+          <span className="rd-episode__play rd-tab-only" aria-hidden="true">
+            ▶
+          </span>
           <Image src="/images/redesign/episode.jpg" alt="Manorama Online Elevate, Season 2: Dreams to Reality, featuring Kalqy" width={1079} height={567} />
         </div>
         <div className="rd-episode__info">

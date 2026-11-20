@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { WelcomeBenefits } from "@/components/home/WelcomeBenefits";
 import { LearningKitOffer } from "@/components/home/LearningKitOffer";
 import { ParentAppSlideshow } from "@/components/home/ParentAppSlideshow";
@@ -15,6 +16,11 @@ export const metadata = pageMeta(
   "/",
 );
 export default function HomePage() {
+  useEffect(() => {
+    document.body.classList.add("home-tablet");
+    return () => document.body.classList.remove("home-tablet");
+  }, []);
+
   return (
     <>
       <WelcomeBenefits />

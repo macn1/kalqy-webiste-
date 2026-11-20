@@ -21,6 +21,7 @@ export function SeeItInAction() {
           <span aria-hidden="true">▶</span>
         </Link>
       </div>
+      <p className="rd-action__cap rd-tab-only">Watch Kalqy in action.</p>
       <ul className="rd-action__facts">
         {callouts.map(([icon, text]) => (
           <li key={text}>

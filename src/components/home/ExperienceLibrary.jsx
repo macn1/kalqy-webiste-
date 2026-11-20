@@ -36,6 +36,7 @@ export function hereExperienceLibrary() {
     <section className="rd-sec rd-lib" aria-labelledby="lib-title">
       <div className="rd-lib__head">
         <div>
+          <span className="rd-lib__pill rd-tab-only">NEW EXPERIENCES</span>
           <h2 id="lib-title">
             Something new to <span>discover.</span>
           </h2>

@@ -1,3 +1,4 @@
+import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
 
 const reviews = [
@@ -109,6 +110,8 @@ export function ClosingInvitation() {
           <p>Start with a conversation about your setting, your questions and what comes next.</p>
         </div>
         <div className="rd-closing__actions">
+          <Image className="rd-closing__boy" src="/images/brand/kalqy-mascot.webp" alt="" width={173} height={259} loading="lazy" />
+          <Image className="rd-closing__pig rd-tab-only" src="/images/hero/pig.png" alt="" width={508} height={814} loading="lazy" />
           <Link href="/product#download" className="rd-btn rd-btn--primary rd-btn--sm">
             Download Now <span aria-hidden="true">↗</span>
           </Link>

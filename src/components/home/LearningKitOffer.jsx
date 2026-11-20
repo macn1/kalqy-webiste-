@@ -29,6 +29,7 @@ const items = [
 ];
 
 const includes = ["Kinesthetic toy kit", "Kalqy movement games", "Kalqy Parent App", "Easy setup with our team’s help"];
+const setupTablet = "Easy setup with step-by-step instructions";
 
 function Visual({ kind }) {
   if (kind === "leo") return <Image className="rd-item__leo" src="/images/redesign/character-leo.png" width={75} height={108} />;
@@ -55,6 +56,7 @@ export function LearningKitOffer() {
   return (
     <section className="rd-offer" aria-labelledby="offer-title">
       <header className="rd-offer__head">
+        <span className="rd-chip rd-chip--yellow rd-tab-only">THE KALQY HOME LEARNING KIT</span>
         <h2 id="offer-title">
           Everything your child needs
           <span>to learn by moving.</span>
@@ -83,23 +85,42 @@ export function LearningKitOffer() {
         </ul>
         <aside className="rd-price" aria-label="Kalqy Home Kit offer">
           <span className="rd-chip rd-chip--pink">LIMITED-TIME OFFER</span>
-          <h3>Kalqy Home Kit</h3>
+          <h3>
+            Kalqy Home <span className="rd-tab-only">Learning </span>Kit
+          </h3>
           <p className="rd-price__was">
             Total value <s>₹20,000</s>
           </p>
-          <p className="rd-price__now">₹4,999/-</p>
+          <div className="rd-price__row">
+            <p className="rd-price__now">
+              ₹4,999<span className="rd-tab-hide">/-</span>
+            </p>
+            <span className="rd-chip rd-chip--pink rd-tab-only">75% OFF</span>
+          </div>
+          <p className="rd-price__save rd-tab-only">You save ₹15,000</p>
           <hr />
           <ul className="rd-price__list">
             {includes.map((t) => (
               <li key={t}>
                 <span aria-hidden="true">✓</span>
-                {t}
+                {t === includes[3] ? (
+                  <>
+                    <em className="rd-tab-hide rd-price__plain">{t}</em>
+                    <em className="rd-tab-only rd-price__plain">{setupTablet}</em>
+                  </>
+                ) : (
+                  t
+                )}
               </li>
             ))}
           </ul>
           <Link href="/product#download" className="rd-price__btn">
-            Get the Kalqy Kit for ₹4,999
+            <span>
+              Get the <span className="rd-tab-hide">Kalqy</span>
+              <span className="rd-tab-only">Learning</span> Kit for ₹4,999
+            </span>
           </Link>
+          <p className="rd-price__foot rd-tab-only">[Delivery time, payment options and offer end date]</p>
         </aside>
       </div>
     </section>

@@ -1,0 +1,945 @@
+/* Tablet-only content: hidden everywhere except the homepage at tablet width. */
+.rd-tab-only {
+  display: none;
+}
+.rd-price__row {
+  display: contents;
+}
+.rd-price__plain {
+  font-style: normal;
+}
+
+/* Homepage tablet layout (721px to 1100px), matched to the Figma "Homepage · Tablet" frame (768px wide).
+   Every rule is scoped to body.home-tablet and to the tablet media query, so desktop (above 1100px),
+   mobile (720px and below) and every other page are untouched. */
+@media (min-width: 721px) and (max-width: 1100px) {
+  /* Sections that are one-screen tall on desktop flow naturally on tablet. */
+  body.home-tablet .rd-gallery,
+  body.home-tablet .rd-parents,
+  body.home-tablet .rd-educators,
+  body.home-tablet .rd-faq {
+    height: auto;
+    min-height: 0;
+    display: block;
+  }
+
+  /* ---------- Header: 36px announcement bar + 95px bar ---------- */
+  body.home-tablet {
+    --announce-height: 36px;
+    --header-bar-height: 95px;
+  }
+  body.home-tablet .announce-bar {
+    font-size: 13px;
+  }
+  body.home-tablet .site-header__bar {
+    padding-inline: 40px;
+  }
+  body.home-tablet .header-cta {
+    height: 48px;
+    padding-inline: 20px;
+    font-size: 15px;
+    gap: 10px;
+  }
+  body.home-tablet .menu-toggle {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* ---------- Hero ---------- */
+  body.home-tablet .rd-hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    min-height: 0;
+    padding: 41px 40px 12px;
+  }
+  body.home-tablet .rd-hero__copy {
+    display: contents; /* lets the visual sit between the buttons and the pager */
+  }
+  body.home-tablet .rd-hero__copy > * {
+    order: 1;
+  }
+  body.home-tablet .rd-hero__copy > .rd-chip {
+    align-self: flex-start;
+    height: 29px;
+    font-size: 12px;
+  }
+  body.home-tablet .rd-hero h1 {
+    margin-top: 19px;
+    font-size: 48px;
+    line-height: 50px;
+  }
+  body.home-tablet .rd-hero__lead {
+    margin-top: 17px;
+    max-width: none;
+    font-size: 17px;
+    line-height: 25px;
+  }
+  body.home-tablet .rd-price-line {
+    margin-top: 17px;
+    flex-wrap: nowrap;
+    gap: 10px 12px;
+  }
+  body.home-tablet .rd-price-line__old {
+    font-size: 20px;
+  }
+  body.home-tablet .rd-price-line__new {
+    font-size: 24px;
+  }
+  body.home-tablet .rd-price-line__note {
+    flex-basis: auto;
+    font-size: 15px;
+  }
+  body.home-tablet .rd-actions {
+    margin-top: 18px;
+    gap: 12px;
+  }
+  body.home-tablet .rd-actions .rd-btn {
+    height: 50px;
+  }
+  body.home-tablet .rd-actions .rd-btn--primary {
+    min-width: 269px;
+  }
+  body.home-tablet .rd-hero__visual {
+    order: 2;
+    justify-content: center;
+    margin-top: 37px;
+    height: 427px;
+  }
+  body.home-tablet .rd-visual {
+    zoom: 0.85;
+  }
+  body.home-tablet .rd-hero__copy > .rd-hero__count {
+    order: 3;
+    margin-top: 40px;
+  }
+
+  /* ---------- Three reasons ---------- */
+  body.home-tablet .rd-reasons {
+    padding: 46px 40px 24px;
+  }
+  body.home-tablet .rd-reasons__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+  body.home-tablet .rd-reasons__grid > li {
+    padding: 0 8px;
+  }
+  body.home-tablet div.rd-tab-only.rd-reasons__guide {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 40px;
+  }
+  body.home-tablet .rd-reasons__guide img {
+    width: 76px;
+    height: auto;
+    flex: none;
+  }
+  body.home-tablet .rd-reasons__guide span {
+    margin-top: 6px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 10px 24px rgba(32, 33, 58, 0.18);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    color: var(--rd-ink);
+  }
+  body.home-tablet .rd-reasons h2 {
+    margin-top: 17px;
+  }
+  body.home-tablet .rd-reasons p {
+    margin-top: 10px;
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  /* ---------- Hero: Figma colours (flat yellow, big circle, no white fade) and the generated KALQY KIT box ---------- */
+  body.home-tablet .rd-hero {
+    background: radial-gradient(circle 350px at 790px 769px, #fee7a8 99.6%, rgba(254, 231, 168, 0) 100%), #fef0c8;
+  }
+  body.home-tablet .rd-hero::after {
+    display: none;
+  }
+  body.home-tablet .rd-hero .rd-visual__glow {
+    opacity: 0.9;
+  }
+  body.home-tablet .rd-visual__box {
+    left: 154px;
+    top: 108px;
+    width: 256px;
+    height: 279px;
+    border: 0;
+    border-radius: 28px;
+  }
+  body.home-tablet .rd-visual__box img {
+    display: none;
+  }
+  body.home-tablet .rd-visual__box-band {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+  }
+  body.home-tablet .rd-visual__box-band::after {
+    content: "PLAY \00B7  MOVE \00B7  LEARN \00B7  GROW";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 190px;
+    text-align: center;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    white-space: nowrap;
+    color: #ffb800;
+  }
+  body.home-tablet .rd-visual__box::before {
+    content: "";
+    position: absolute;
+    left: 46px;
+    top: 73px;
+    width: 165px;
+    height: 62px;
+    border-radius: 14px;
+    background: #fff url("/images/redesign/logo.png") center / 132px auto no-repeat;
+  }
+  body.home-tablet .rd-visual__box::after {
+    content: "KALQY KIT";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 160px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #fff;
+  }
+  body.home-tablet .rd-visual::after {
+    content: "Preview \00B7  product visuals";
+    position: absolute;
+    left: 154px;
+    width: 256px;
+    top: 470px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--rd-secondary);
+  }
+  body.home-tablet .rd-visual__phone {
+    top: 41px;
+  }
+  body.home-tablet .rd-visual__cube {
+    top: 338px;
+  }
+  body.home-tablet .rd-visual__ring {
+    top: 394px;
+  }
+  body.home-tablet .rd-visual__board {
+    top: 415px;
+  }
+
+  body.home-tablet .rd-tab-hide {
+    display: none;
+  }
+  body.home-tablet span.rd-tab-only,
+  body.home-tablet em.rd-tab-only {
+    display: inline;
+  }
+  body.home-tablet p.rd-tab-only,
+  body.home-tablet div.rd-tab-only {
+    display: block;
+  }
+  body.home-tablet img.rd-tab-only {
+    display: inline-block;
+  }
+  body.home-tablet .rd-chip.rd-tab-only {
+    display: inline-flex;
+  }
+  body.home-tablet .rd-float.rd-tab-only {
+    display: flex;
+  }
+
+  /* ---------- Learning Kit offer ---------- */
+  body.home-tablet .rd-offer {
+    padding: 0 40px 72px;
+    gap: 0;
+  }
+  body.home-tablet .rd-offer__head {
+    text-align: left;
+  }
+  body.home-tablet .rd-offer__head > .rd-chip {
+    display: inline-flex;
+    height: 26px;
+    font-size: 11px;
+  }
+  body.home-tablet .rd-offer__head h2 {
+    margin: 14px 0 12px;
+    font-size: 41px;
+    line-height: 44px;
+    letter-spacing: -0.03em;
+  }
+  body.home-tablet .rd-offer__head p {
+    max-width: 660px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 25px;
+  }
+  body.home-tablet .rd-offer__grid {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    margin-top: 40px;
+  }
+  body.home-tablet .rd-offer__items {
+    gap: 20px;
+  }
+  body.home-tablet .rd-item {
+    flex-direction: row;
+    align-items: center;
+    padding: 16px 18px;
+  }
+  body.home-tablet .rd-price {
+    padding: 32px;
+    gap: 0;
+  }
+  body.home-tablet .rd-price > .rd-chip {
+    height: 28px;
+  }
+  body.home-tablet .rd-price h3 {
+    margin-top: 16px;
+    font-size: 20px;
+  }
+  body.home-tablet .rd-price__was {
+    margin-top: 14px;
+    font-size: 17px;
+  }
+  body.home-tablet .rd-price__row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 8px;
+  }
+  body.home-tablet .rd-price__now {
+    margin: 0;
+    font-size: 52px;
+  }
+  body.home-tablet .rd-price__save {
+    margin: 6px 0 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1f9d55;
+  }
+  body.home-tablet .rd-price hr {
+    margin: 18px 0 20px;
+  }
+  body.home-tablet .rd-price__list {
+    gap: 17px;
+  }
+  body.home-tablet .rd-price__btn {
+    margin-top: 18px;
+  }
+  body.home-tablet .rd-price__foot {
+    margin: 16px 0 0;
+    font-size: 11px;
+    font-weight: 600;
+    color: #ff6b6b;
+  }
+
+  /* ---------- Parent App ---------- */
+  body.home-tablet .rd-app {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 64px 40px 99px;
+  }
+  body.home-tablet .rd-app__copy {
+    gap: 20px;
+  }
+  body.home-tablet .rd-app__tabs {
+    order: -1;
+  }
+  body.home-tablet .rd-app__tabs li {
+    padding: 8px 16px;
+  }
+  body.home-tablet .rd-app h2 {
+    font-size: 38px;
+    line-height: 43px;
+  }
+  body.home-tablet .rd-app__lead {
+    font-size: 16px;
+    line-height: 25px;
+  }
+  body.home-tablet .rd-app__features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  body.home-tablet .rd-app__features li {
+    height: 60px;
+    padding: 0 14px;
+  }
+  body.home-tablet .rd-app__features strong {
+    font-size: 13px;
+  }
+  body.home-tablet .rd-app__features small {
+    font-size: 11px;
+    margin-top: 1px;
+  }
+  body.home-tablet .rd-app__actions .rd-btn {
+    min-height: 52px;
+    font-size: 15px;
+  }
+  body.home-tablet .rd-app__stage {
+    zoom: 0.93;
+    align-self: center;
+    margin-top: 41px;
+    height: 640px;
+  }
+  body.home-tablet .rd-app__chip,
+  body.home-tablet .rd-app__boy {
+    display: none;
+  }
+  body.home-tablet .rd-float--a {
+    left: -94px;
+  }
+  body.home-tablet .rd-float--b {
+    left: 307px;
+    top: 422px;
+  }
+  body.home-tablet .rd-app__sample {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 645px;
+    margin: 0;
+    text-align: center;
+    font-size: 11px;
+    color: var(--rd-secondary);
+  }
+
+  /* ---------- How it works: stacked header, one card per row ---------- */
+  body.home-tablet .rd-how {
+    padding-top: 80px;
+    gap: 43px;
+  }
+  body.home-tablet .rd-how__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  body.home-tablet .rd-how__head > div:first-child,
+  body.home-tablet .rd-how__lead {
+    width: 100%;
+  }
+  body.home-tablet .rd-how h2 {
+    font-size: 44px;
+    line-height: 49px;
+  }
+  body.home-tablet .rd-how .rd-eyebrow {
+    margin-bottom: 12px;
+  }
+  body.home-tablet .rd-how__lead p {
+    font-size: 16px;
+    line-height: 25px;
+  }
+  body.home-tablet .rd-steps {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  body.home-tablet .rd-step {
+    flex-direction: row;
+    align-items: center;
+    gap: 29px;
+    padding: 21px;
+  }
+  body.home-tablet .rd-step__visual {
+    width: 299px;
+    height: 216px;
+  }
+  body.home-tablet .rd-step__copy {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  body.home-tablet .rd-step__label {
+    font-size: 36px;
+  }
+  body.home-tablet .rd-step h3 {
+    font-size: 22px;
+  }
+  body.home-tablet .rd-step__copy p:last-child {
+    font-size: 15px;
+    line-height: 25px;
+  }
+  body.home-tablet .rd-needs {
+    gap: 32px;
+  }
+  body.home-tablet .rd-needs ul {
+    gap: 16px 28px;
+  }
+  body.home-tablet .rd-needs li {
+    font-size: 14px;
+  }
+
+  body.home-tablet .rd-how {
+    padding-bottom: 11px;
+  }
+
+  /* ---------- Experience library: horizontal cards, button below the list ---------- */
+  body.home-tablet .rd-lib {
+    display: flex;
+    flex-direction: column;
+    padding: 148px 40px 56px;
+  }
+  body.home-tablet .rd-lib__head {
+    display: contents;
+  }
+  body.home-tablet .rd-lib__head > div {
+    order: 1;
+    flex: none;
+    margin-bottom: 101px;
+  }
+  body.home-tablet span.rd-lib__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: normal;
+  }
+  body.home-tablet .rd-lib__pill::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ffd45a;
+  }
+  body.home-tablet .rd-lib h2 {
+    margin: 19px 0 18px;
+    font-size: 46px;
+    line-height: 52px;
+  }
+  body.home-tablet .rd-lib__head p {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  body.home-tablet .rd-lib__cards {
+    order: 2;
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 81px;
+  }
+  body.home-tablet .rd-lib__cta {
+    order: 3;
+    align-self: center;
+    margin-top: 101px;
+  }
+  body.home-tablet .rd-xcard {
+    height: 235px;
+  }
+  body.home-tablet .rd-xcard__arch {
+    left: 28px;
+    top: 38px;
+    width: 196px;
+    height: 176px;
+    border-radius: 98px 98px 24px 24px;
+  }
+  body.home-tablet .rd-xcard__light {
+    left: 33px;
+    top: 38px;
+    width: 187px;
+    height: 187px;
+    translate: none;
+  }
+  body.home-tablet .rd-xcard__shadow {
+    left: 59px;
+    top: 210px;
+    width: 133px;
+    height: 20px;
+    translate: none;
+  }
+  body.home-tablet .rd-xcard__char {
+    left: 14px;
+    top: -12px;
+    width: 224px;
+    height: 224px;
+    translate: none;
+  }
+  body.home-tablet .rd-xcard__arch {
+    translate: none;
+  }
+  body.home-tablet .rd-xcard__body {
+    left: 252px;
+    top: 22px;
+    width: 408px;
+    gap: 12px;
+  }
+  body.home-tablet .rd-xcard h3 {
+    font-size: 24px;
+  }
+  body.home-tablet .rd-xcard__body p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  body.home-tablet .rd-xcard__action {
+    left: 252px;
+    top: 163px;
+    width: 408px;
+  }
+
+  /* ---------- See it in action ---------- */
+  body.home-tablet .rd-action {
+    height: auto;
+    min-height: 0;
+    gap: 0;
+    padding: 56px 40px 97px;
+  }
+  body.home-tablet .rd-action h2 {
+    margin-bottom: 48px;
+    font-size: 44px;
+    line-height: 55px;
+  }
+  body.home-tablet .rd-action__frame {
+    flex: none;
+    width: 100%;
+    height: 336px;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+  body.home-tablet .rd-action__cap {
+    margin: 8px 0 0;
+    font-size: 11px;
+    line-height: 16px;
+    color: var(--rd-secondary);
+  }
+  body.home-tablet .rd-action__facts {
+    margin-top: 44px;
+  }
+  body.home-tablet .rd-action > .rd-btn {
+    margin-top: 44px;
+  }
+
+  /* ---------- Purpose ---------- */
+  body.home-tablet .rd-purpose {
+    padding: 117px 40px 39px;
+  }
+  body.home-tablet .rd-purpose h2 {
+    font-size: 44px;
+    line-height: 55px;
+  }
+  body.home-tablet .rd-purpose .rd-lead {
+    font-size: 16px;
+  }
+
+  /* ---------- Difference / Parents / Educators / Gallery headings ---------- */
+  body.home-tablet .rd-diff__tortoise {
+    display: none;
+  }
+  body.home-tablet .rd-diff h2,
+  body.home-tablet .rd-parents h2,
+  body.home-tablet .rd-educators h2,
+  body.home-tablet .rd-gallery h2 {
+    font-size: 46px;
+    line-height: 55px;
+  }
+  body.home-tablet .rd-parents .rd-lead,
+  body.home-tablet .rd-educators .rd-lead {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  body.home-tablet .rd-diff {
+    padding: 107px 40px 77px;
+  }
+  body.home-tablet .rd-diff__grid h3 {
+    font-size: 20px;
+  }
+  body.home-tablet .rd-diff__grid p {
+    font-size: 14px;
+  }
+  body.home-tablet .rd-parents {
+    padding-top: 129px;
+  }
+
+  /* ---------- Parents / Educators / Gallery spacing ---------- */
+  body.home-tablet .rd-parents,
+  body.home-tablet .rd-educators {
+    padding-bottom: 96px;
+  }
+  body.home-tablet .rd-gallery__inner {
+    gap: 48px;
+  }
+  body.home-tablet .rd-gallery__inner > header {
+    margin-bottom: 13px;
+  }
+  body.home-tablet .rd-didac__photo {
+    height: 170px;
+  }
+  body.home-tablet .rd-gallery__wide {
+    aspect-ratio: auto;
+    height: 280px;
+  }
+
+  /* ---------- Built on clarity ---------- */
+  body.home-tablet .rd-info__guide {
+    display: none;
+  }
+  body.home-tablet .rd-info {
+    padding: 91px 40px 80px;
+    gap: 51px;
+  }
+  body.home-tablet .rd-info h2 {
+    font-size: 46px;
+    line-height: 55px;
+  }
+  body.home-tablet .rd-info__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 31px;
+  }
+
+  /* ---------- FAQ ---------- */
+  body.home-tablet .rd-faq {
+    padding-top: 77px;
+  }
+  body.home-tablet .rd-faq h2 {
+    font-size: 44px;
+    line-height: 49px;
+  }
+  body.home-tablet .rd-faq__inner {
+    gap: 34px;
+  }
+
+  /* ---------- Trust ---------- */
+  body.home-tablet .rd-trust {
+    padding: 87px 40px 19px;
+  }
+  body.home-tablet .rd-trust__head {
+    margin-bottom: 37px;
+    gap: 32px;
+  }
+  body.home-tablet .rd-trust__head > div:first-child {
+    max-width: none;
+    gap: 14px;
+  }
+  body.home-tablet span.rd-trust__pill {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(32, 33, 58, 0.1);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--rd-primary);
+  }
+  body.home-tablet .rd-trust__pill::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff5a5f;
+  }
+  body.home-tablet .rd-trust .rd-h2 {
+    font-size: 44px;
+    line-height: 45px;
+  }
+  body.home-tablet .rd-trust .rd-lead {
+    max-width: 676px;
+    font-size: 15px;
+    line-height: 25px;
+  }
+  body.home-tablet .rd-episode {
+    position: relative;
+    padding: 16px 16px 21px;
+  }
+  body.home-tablet .rd-episode__shot {
+    position: relative;
+  }
+  body.home-tablet .rd-episode__shot img {
+    aspect-ratio: 656 / 344;
+  }
+  body.home-tablet span.rd-episode__play {
+    position: absolute;
+    right: 22px;
+    bottom: 22px;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--rd-ink);
+    font-size: 12px;
+  }
+  body.home-tablet .rd-trust__boy {
+    position: absolute;
+    right: 61px;
+    top: -111px;
+    width: 80px;
+    height: auto;
+    pointer-events: none;
+    z-index: 2;
+  }
+  body.home-tablet .rd-episode__info {
+    margin: 22px 8px 0;
+    padding: 0;
+  }
+  body.home-tablet .rd-episode__parts {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    margin: 12px 8px 0;
+    padding: 0;
+    gap: 7px;
+  }
+  body.home-tablet .rd-episode__parts li {
+    padding: 8px 10px;
+    font-size: 11.5px;
+  }
+
+  /* ---------- Reviews: horizontal carousel with the top review first ---------- */
+  body.home-tablet .rd-reviews {
+    padding: 119px 40px 72px;
+  }
+  body.home-tablet .rd-reviews .rd-h2 {
+    font-size: 50px;
+    line-height: 55px;
+  }
+  body.home-tablet .rd-reviews__head p {
+    max-width: 650px;
+    font-size: 17px;
+  }
+  body.home-tablet .rd-reviews__head {
+    gap: 19px;
+    margin-bottom: 57px;
+  }
+  body.home-tablet .rd-reviews__star {
+    left: 448px;
+    top: 110px;
+    font-size: 30px;
+    color: #ffc400;
+  }
+  body.home-tablet .rd-reviews__cards {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    margin-right: -40px;
+    max-width: none;
+  }
+  body.home-tablet .rd-review {
+    flex: none;
+    width: 340px;
+    margin-top: 61px;
+    padding: 24px;
+    gap: 18px;
+  }
+  body.home-tablet .rd-review--top {
+    order: -1;
+    margin-top: 0;
+    padding: 36px 24px 24px;
+  }
+  body.home-tablet .rd-review blockquote {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  body.home-tablet .rd-reviews__controls {
+    margin-top: 40px;
+  }
+
+  /* ---------- Closing ---------- */
+  body.home-tablet #closing-title {
+    margin-top: 46px;
+    font-size: 46px;
+    line-height: 55px;
+  }
+
+  /* ---------- Footer: brand on top, three link columns, socials, then the legal row ---------- */
+  body.home-tablet .rd-footer__waves {
+    height: 170px;
+  }
+  body.home-tablet .rd-footer__waves > img:first-child {
+    height: 170px;
+  }
+  body.home-tablet .rd-footer__lion {
+    right: 30px;
+    top: -60px;
+    width: 100px;
+    height: 143px;
+  }
+  body.home-tablet .rd-footer__body {
+    padding: 30px 40px 40px;
+  }
+  body.home-tablet .rd-footer__cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 41px 32px;
+  }
+  body.home-tablet .rd-footer__brand {
+    grid-column: 1 / -1;
+  }
+  body.home-tablet .rd-footer__brand p {
+    max-width: none;
+    margin: 18px 0 11px;
+    font-size: 14px;
+  }
+  body.home-tablet .rd-footer__brand address span {
+    margin-top: 4px;
+  }
+  body.home-tablet .rd-footer__group ul {
+    gap: 4px;
+  }
+  body.home-tablet .rd-footer__divider {
+    margin: 56px auto 40px;
+  }
+  body.home-tablet .rd-footer__bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    row-gap: 40px;
+  }
+  body.home-tablet .rd-footer__social {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  body.home-tablet .rd-footer__bar > p {
+    grid-column: 1;
+    grid-row: 2;
+    color: rgba(250, 249, 246, 0.85);
+  }
+  body.home-tablet .rd-footer__legal {
+    display: contents;
+  }
+  body.home-tablet .rd-footer__legal > span {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: -26px;
+    color: rgba(250, 249, 246, 0.85);
+  }
+  body.home-tablet .rd-footer__legal a:not(.rd-footer__top) {
+    color: rgba(250, 249, 246, 0.85);
+  }
+  body.home-tablet .rd-footer__top {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    align-self: center;
+  }
+  body.home-tablet .rd-closing {
+    padding-bottom: 56px;
+  }
+  body.home-tablet img.rd-closing__pig {
+    display: none;
+  }
+  /* The footer character sits in front of the waves, so the boar replaces it there (same spot as the lion). */
+  body.home-tablet .rd-footer__lion {
+    content: url("/images/hero/pig.png");
+    object-fit: contain;
+    z-index: 3;
+  }
+}

@@ -567,7 +567,7 @@
 }
 .rd-episode__shot img {
   width: 100%;
-  aspect-ratio: 1079 / 567;
+  aspect-ratio: 1079 / 440;
   object-fit: cover;
 }
 .rd-episode__info {
@@ -1464,8 +1464,9 @@
 .rd-action {
   max-width: none;
   margin-inline: 0;
-  min-height: 100vh;
-  min-height: 100svh;
+  height: 100vh;
+  height: 120svh;
+  min-height: 640px;
   padding: clamp(72px, 10vh, 100px) var(--rd-gutter) clamp(56px, 7.5vh, 84px); /* clears the curved top and the next curve */
   gap: clamp(14px, 2.6vh, 48px);
 }
@@ -1486,17 +1487,114 @@
 }
 @media (max-width: 1100px) {
   .rd-action {
-    min-height: 0;
     padding-block: 72px 64px;
-  }
-  .rd-action__frame {
-    flex: none;
-    aspect-ratio: 1280 / 626;
   }
 }
 @media (max-width: 720px) {
   .rd-action {
     gap: 28px;
     padding-block: 64px;
+  }
+}
+
+/* ---------- Gallery: one screen tall, content centred vertically, tighter bottom gap ---------- */
+.rd-gallery {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 32px;
+}
+.rd-gallery__inner {
+  width: 100%;
+  gap: clamp(24px, 4vh, 40px);
+}
+
+/* ---------- Parents + Educators: same treatment (one screen tall, centred, tighter bottom gap) ---------- */
+.rd-parents,
+.rd-educators {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 32px;
+}
+.rd-parents > .rd-split,
+.rd-educators > .rd-split {
+  width: 100%;
+}
+
+/* ---------- Product info: guide boy at the bottom-left corner (his feet dip into the next section) ---------- */
+.rd-info > .rd-info__guide {
+  position: absolute;
+  left: clamp(8px, 1vw, 24px);
+  bottom: -40px;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  pointer-events: none;
+}
+.rd-info__chip {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(32, 33, 58, 0.16);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--rd-ink);
+}
+.rd-info__boy {
+  width: clamp(96px, 9vw, 130px);
+  height: auto;
+  filter: drop-shadow(0 8px 12px rgba(32, 33, 58, 0.18));
+}
+@media (max-width: 720px) {
+  .rd-info > .rd-info__guide {
+    display: none;
+  }
+}
+
+/* ---------- FAQ: one screen tall, content centred ---------- */
+.rd-faq {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.rd-faq > .rd-faq__inner {
+  width: 100%;
+}
+
+/* Closing: a little space above the heading */
+#closing-title {
+  margin-top: 32px;
+}
+
+/* Closing: pointing boy standing to the left of the Download Now button */
+.rd-closing__actions {
+  position: relative;
+}
+.rd-closing__boy {
+  position: absolute;
+  right: 100%;
+  bottom: -4px;
+  margin-right: 28px;
+  width: clamp(130px, 12vw, 190px);
+  height: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 12px rgba(32, 33, 58, 0.18));
+}
+@media (max-width: 1100px) {
+  .rd-closing__boy {
+    display: none;
   }
 }

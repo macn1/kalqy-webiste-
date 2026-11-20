@@ -125,6 +125,10 @@ export function WelcomeBenefits() {
             </li>
           ))}
         </ul>
+        <div className="rd-reasons__guide rd-tab-only" aria-hidden="true">
+          <Image src="/images/hero/boy.png" alt="" width={527} height={1093} loading="lazy" />
+          <span>Scroll to walk with me!</span>
+        </div>
       </section>
     </>
   );
