@@ -1,0 +1,981 @@
+/* Homepage mobile layout (720px and below), matched to the Figma "Homepage · Mobile" frames (390px wide).
+   Every rule sits inside the mobile media query and is scoped to body.home-tablet (the class Home adds),
+   so desktop (above 1100px), tablet (721px to 1100px) and every other page are untouched.
+   Loaded after redesign-tablet.css. */
+
+/* Mobile-only content: hidden everywhere except the homepage at mobile width. */
+.rd-mob-only {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  /* Tablet-only copy (75% OFF chip, "You save", footnotes, ...) is part of the mobile design too. */
+  body.home-tablet .rd-tab-hide {
+    display: none;
+  }
+  body.home-tablet span.rd-tab-only,
+  body.home-tablet em.rd-tab-only,
+  body.home-tablet span.rd-mob-only {
+    display: inline;
+  }
+  body.home-tablet p.rd-tab-only,
+  body.home-tablet div.rd-tab-only {
+    display: block;
+  }
+  body.home-tablet img.rd-tab-only {
+    display: inline-block;
+  }
+  body.home-tablet .rd-chip.rd-tab-only {
+    display: inline-flex;
+  }
+  body.home-tablet .rd-float.rd-tab-only {
+    display: flex;
+  }
+  /* ...except the pieces the mobile frames leave out. */
+  body.home-tablet div.rd-reasons__guide,
+  body.home-tablet span.rd-lib__pill,
+  body.home-tablet .rd-float.rd-float--b.rd-tab-only {
+    display: none;
+  }
+
+  body.home-tablet {
+    --rd-gutter: 20px;
+    --announce-height: 36px;
+    --header-bar-height: 80px;
+  }
+
+  /* ---------- Header: 36px announcement bar + 80px bar ---------- */
+  body.home-tablet .announce-bar {
+    font-size: 13px;
+  }
+  body.home-tablet .site-header__bar {
+    padding-inline: 24px;
+  }
+  body.home-tablet .brand-link img {
+    height: 32px !important;
+    width: auto;
+  }
+  body.home-tablet .menu-toggle {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #dedcef;
+    border-radius: 16px;
+  }
+
+  /* ---------- Hero ---------- */
+  body.home-tablet .rd-hero {
+    background: radial-gradient(circle 200px at 370px 640px, #fee7a8 99.6%, rgba(254, 231, 168, 0) 100%), #fef0c8;
+  }
+  body.home-tablet .rd-hero::after {
+    display: none;
+  }
+  body.home-tablet .rd-hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    min-height: 0;
+    padding: 40px 20px 24px;
+  }
+  body.home-tablet .rd-hero__copy {
+    display: contents; /* lets the visual sit between the buttons and the pager */
+  }
+  body.home-tablet .rd-hero__copy > * {
+    order: 1;
+  }
+  body.home-tablet .rd-hero__copy > .rd-chip {
+    align-self: flex-start;
+    height: 29px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+  body.home-tablet .rd-hero h1 {
+    margin-top: 15px;
+    font-size: 34px;
+    line-height: 37.5px;
+    letter-spacing: -0.03em;
+  }
+  body.home-tablet .rd-hero__lead {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 25px;
+  }
+  body.home-tablet .rd-price-line {
+    margin-top: 22px;
+    flex-wrap: wrap;
+    gap: 0 12px;
+  }
+  body.home-tablet .rd-price-line .rd-chip {
+    height: 25px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+  body.home-tablet .rd-price-line__old {
+    font-size: 20px;
+    color: #ff017b;
+  }
+  body.home-tablet .rd-price-line__new {
+    font-size: 24px;
+    color: var(--rd-ink);
+  }
+  body.home-tablet .rd-price-line__note {
+    flex-basis: 100%;
+    margin-top: 8px;
+    font-size: 15px;
+  }
+  body.home-tablet .rd-actions {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 22px;
+    gap: 12px;
+  }
+  body.home-tablet .rd-actions .rd-btn {
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    border-radius: 20px;
+    font-size: 16px;
+  }
+  body.home-tablet .rd-actions .rd-btn--outline {
+    height: 50px;
+    border-width: 2px;
+  }
+  body.home-tablet .rd-hero__visual {
+    order: 2;
+    justify-content: center;
+    margin-top: 28px;
+    height: 312px;
+  }
+  body.home-tablet .rd-visual {
+    zoom: 0.6;
+  }
+  body.home-tablet .rd-hero__copy > .rd-hero__count {
+    order: 3;
+    margin-top: 40px;
+    font-size: 14px;
+  }
+  body.home-tablet .rd-hero .rd-visual__glow {
+    opacity: 0.9;
+  }
+  body.home-tablet .rd-visual__chip {
+    display: none;
+  }
+  /* Generated KALQY KIT box (same artwork as the tablet frame, scaled down with the stage). */
+  body.home-tablet .rd-visual__box {
+    left: 154px;
+    top: 108px;
+    width: 256px;
+    height: 279px;
+    border: 0;
+    border-radius: 28px;
+  }
+  body.home-tablet .rd-visual__box img {
+    display: none;
+  }
+  body.home-tablet .rd-visual__box-band {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+  }
+  body.home-tablet .rd-visual__box-band::after {
+    content: "PLAY \00B7  MOVE \00B7  LEARN \00B7  GROW";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 190px;
+    text-align: center;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    white-space: nowrap;
+    color: #ffb800;
+  }
+  body.home-tablet .rd-visual__box::before {
+    content: "";
+    position: absolute;
+    left: 46px;
+    top: 73px;
+    width: 165px;
+    height: 62px;
+    border-radius: 14px;
+    background: #fff url("/images/redesign/logo.png") center / 132px auto no-repeat;
+  }
+  body.home-tablet .rd-visual__box::after {
+    content: "KALQY KIT";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 160px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #fff;
+  }
+  body.home-tablet .rd-visual::after {
+    content: "Preview \00B7  product visuals";
+    position: absolute;
+    left: 154px;
+    width: 256px;
+    top: 470px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--rd-secondary);
+  }
+  body.home-tablet .rd-visual__phone {
+    top: 41px;
+  }
+  body.home-tablet .rd-visual__cube {
+    top: 338px;
+  }
+  body.home-tablet .rd-visual__ring {
+    top: 394px;
+  }
+  body.home-tablet .rd-visual__board {
+    top: 415px;
+  }
+
+  /* ---------- Three reasons ---------- */
+  body.home-tablet .rd-reasons {
+    padding: 48px 24px;
+  }
+  body.home-tablet .rd-reasons__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+  body.home-tablet .rd-reasons h2 {
+    margin: 0 0 16px;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: -0.01em;
+  }
+  body.home-tablet .rd-reasons p {
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  /* ---------- Learning Kit offer ---------- */
+  body.home-tablet .rd-offer {
+    padding: 24px 24px 72px;
+    gap: 0;
+  }
+  body.home-tablet .rd-offer__head {
+    text-align: left;
+  }
+  body.home-tablet .rd-offer__head > .rd-chip {
+    display: inline-flex;
+    height: 29px;
+    padding: 0 12px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  body.home-tablet .rd-offer__head h2 {
+    margin: 14px 0 12px;
+    font-size: 32px;
+    line-height: 34.5px;
+    letter-spacing: -0.03em;
+  }
+  body.home-tablet .rd-offer__head p {
+    max-width: none;
+    margin: 0;
+    font-size: 16px;
+    line-height: 25px;
+  }
+  body.home-tablet .rd-offer__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  body.home-tablet .rd-offer__items {
+    gap: 16px;
+  }
+  body.home-tablet .rd-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: 15px;
+    border-radius: 24px;
+  }
+  body.home-tablet .rd-item__visual {
+    zoom: 0.7; /* 120px artwork box shown at 84px */
+    border-radius: 23px;
+  }
+  body.home-tablet .rd-item__copy {
+    min-width: 0;
+  }
+  body.home-tablet .rd-item__copy h3 {
+    gap: 8px;
+    margin: 0 0 4px;
+    font-size: 20px;
+    flex-wrap: wrap;
+  }
+  body.home-tablet .rd-item__copy p {
+    font-size: 15px;
+    line-height: 21px;
+  }
+  body.home-tablet .rd-item__copy .rd-item__note {
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+  }
+  body.home-tablet .rd-price {
+    padding: 24px 20px;
+    gap: 0;
+    border-radius: 28px;
+  }
+  body.home-tablet .rd-price > .rd-chip {
+    height: 29px;
+    padding: 0 12px;
+    font-size: 12px;
+    color: var(--rd-ink);
+  }
+  body.home-tablet .rd-price h3 {
+    margin-top: 16px;
+    font-size: 22px;
+    line-height: 28px;
+  }
+  body.home-tablet .rd-price__was {
+    margin-top: 14px;
+    font-size: 16px;
+  }
+  body.home-tablet .rd-price__row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 8px;
+  }
+  body.home-tablet .rd-price__row .rd-chip {
+    height: 29px;
+    padding: 0 12px;
+    font-size: 12px;
+    color: var(--rd-ink);
+  }
+  body.home-tablet .rd-price__now {
+    margin: 0;
+    font-size: 48px;
+    letter-spacing: -0.02em;
+  }
+  body.home-tablet .rd-price__save {
+    margin: 6px 0 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f9d55;
+  }
+  body.home-tablet .rd-price hr {
+    margin: 18px 0 18px;
+  }
+  body.home-tablet .rd-price__list {
+    gap: 18px;
+  }
+  body.home-tablet .rd-price__list li {
+    font-size: 16px;
+    line-height: 22px;
+    align-items: flex-start;
+  }
+  body.home-tablet .rd-price__btn {
+    margin-top: 19px;
+    min-height: 51px;
+    padding: 0 16px;
+    font-size: 16px;
+  }
+  body.home-tablet .rd-price__foot {
+    margin: 18px 0 0;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #ff6b6b;
+  }
+
+  /* ---------- Parent App ---------- */
+  body.home-tablet .rd-app {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 72px 20px 72px;
+  }
+  /* Top curve: bg-app.webp is stretched to the whole (very tall) section on mobile, which turns its gentle wave
+     into a tall hill. Draw it at its true proportions instead (width-based height), then fill below the wave. */
+  body.home-tablet .rd-app::before {
+    background-size: 100% auto;
+    background-position: 0 0;
+  }
+  body.home-tablet .rd-app::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40px;
+    bottom: -110px;
+    z-index: -1;
+    background: linear-gradient(90deg, #f8f6ff, #f6f4ff 25%, #f3f1ff 50%, #f1eeff 75%, #efecff);
+    pointer-events: none;
+  }
+  body.home-tablet .rd-app__deco {
+    left: auto;
+    right: -249px;
+    top: 558px;
+    width: 356px;
+    height: 356px;
+  }
+  body.home-tablet .rd-app__copy {
+    gap: 20px;
+  }
+  body.home-tablet .rd-app__tabs {
+    order: -1;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  body.home-tablet .rd-app__tabs li {
+    padding: 0 14px;
+    height: 30px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  body.home-tablet .rd-app h2 {
+    font-size: 32px;
+    line-height: 34px;
+    letter-spacing: -0.03em;
+  }
+  body.home-tablet .rd-app__lead {
+    font-size: 16px;
+    line-height: 25px;
+  }
+  body.home-tablet .rd-app__features {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  body.home-tablet .rd-app__features li {
+    height: 60px;
+    padding: 0 14px;
+    border-radius: 16px;
+    background: #fff;
+  }
+  body.home-tablet .rd-app__features strong {
+    font-size: 15px;
+  }
+  body.home-tablet .rd-app__features small {
+    font-size: 13px;
+    margin-top: 1px;
+  }
+  body.home-tablet .rd-app__actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  body.home-tablet .rd-app__actions .rd-btn {
+    min-height: 51px;
+    padding: 0 28px;
+    border-radius: 14px;
+    font-size: 16px;
+  }
+  body.home-tablet .rd-app__actions p {
+    font-size: 14px;
+  }
+  body.home-tablet .rd-app__stage {
+    zoom: 0.75;
+    align-self: center;
+    margin-top: 44px;
+    height: 655px;
+  }
+  body.home-tablet .rd-app__chip,
+  body.home-tablet .rd-app__boy {
+    display: none;
+  }
+  body.home-tablet .rd-float--a {
+    left: -12px;
+  }
+  body.home-tablet .rd-app__sample {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 645px;
+    margin: 0;
+    text-align: center;
+    font-size: 15px;
+    color: var(--rd-secondary);
+  }
+
+  /* ---------- How it works ---------- */
+  /* Same fix for the wavy top edge (this is also the curved bottom of the Parent App section): bg-how.svg is
+     drawn at its true proportions, and the rest of the section is filled with the matching cream. */
+  body.home-tablet .rd-how::before {
+    background-size: 100% auto;
+    background-position: 0 0;
+  }
+  body.home-tablet .rd-how::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    bottom: -110px;
+    z-index: -1;
+    background: linear-gradient(90deg, #fcfaf5, #faf8f3 25%, #f9f7f1 50%, #f8f5ef 75%, #f7f4ed);
+    pointer-events: none;
+  }
+  body.home-tablet .rd-how {
+    padding: 72px 20px 64px;
+    gap: 40px;
+  }
+  body.home-tablet .rd-how__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  body.home-tablet .rd-how__head > div:first-child,
+  body.home-tablet .rd-how__lead {
+    width: 100%;
+  }
+  body.home-tablet .rd-how .rd-eyebrow {
+    margin-bottom: 12px;
+  }
+  body.home-tablet .rd-how h2 {
+    font-size: 36px;
+    line-height: 39px;
+    letter-spacing: -0.03em;
+  }
+  body.home-tablet .rd-how__lead p {
+    font-size: 16px;
+    line-height: 25px;
+  }
+  body.home-tablet .rd-how__lead .rd-btn {
+    min-height: 45px;
+    padding: 0 20px;
+  }
+  body.home-tablet .rd-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  body.home-tablet .rd-step {
+    gap: 20px;
+    padding: 18px;
+    border-radius: 28px;
+  }
+  body.home-tablet .rd-step__visual {
+    height: 196px;
+  }
+  body.home-tablet .rd-step__copy {
+    gap: 8px;
+    padding: 0 4px 6px;
+  }
+  body.home-tablet .rd-step__label {
+    font-size: 36px;
+  }
+  body.home-tablet .rd-step h3 {
+    font-size: 24px;
+  }
+  body.home-tablet .rd-step__copy p:last-child {
+    font-size: 16px;
+    line-height: 25px;
+  }
+  body.home-tablet .rd-pill {
+    left: 10px;
+    top: 156px;
+  }
+  body.home-tablet .rd-needs {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  body.home-tablet .rd-needs ul {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+  body.home-tablet .rd-needs li {
+    font-size: 15px;
+  }
+
+  /* ---------- Experience library: one tall card per row, button below the list ---------- */
+  /* Wavy top edge at its true proportions (bg-experience.svg is otherwise stretched over the tall section),
+     then a matching dark gradient below the wave. */
+  body.home-tablet .rd-lib::before {
+    background-size: 100% auto;
+    background-position: 0 0;
+  }
+  body.home-tablet .rd-lib::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    bottom: -110px;
+    z-index: -1;
+    background:
+      radial-gradient(circle 150px at 100% 30px, rgba(108, 40, 104, 0.85), rgba(108, 40, 104, 0) 100%),
+      linear-gradient(180deg, #221a5c 0, #1e1753 300px, #1a144a 900px, #13103b 100%);
+    pointer-events: none;
+  }
+  body.home-tablet .rd-lib {
+    display: flex;
+    flex-direction: column;
+    padding: 48px 24px 56px;
+  }
+  body.home-tablet .rd-lib__head {
+    display: contents;
+  }
+  body.home-tablet .rd-lib__head > div {
+    order: 1;
+    flex: none;
+    margin-bottom: 120px;
+  }
+  body.home-tablet .rd-lib h2 {
+    margin: 0 0 16px;
+    font-size: 36px;
+    line-height: 39px;
+    letter-spacing: -0.03em;
+  }
+  body.home-tablet .rd-lib__head p {
+    font-size: 15px;
+    line-height: 26px;
+  }
+  body.home-tablet .rd-lib__cards {
+    order: 2;
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 122px;
+  }
+  body.home-tablet .rd-lib__cta {
+    order: 3;
+    align-self: center;
+    margin-top: 112px;
+    min-height: 58px;
+    padding: 0 28px;
+    font-size: 16px;
+  }
+  body.home-tablet .rd-xcard {
+    height: 428px;
+    border-radius: 32px;
+  }
+  body.home-tablet .rd-xcard__arch {
+    left: 50%;
+    top: 0;
+    width: 210px;
+    height: 170px;
+    margin-left: -105px;
+    translate: none;
+    border-radius: 90px 90px 28px 28px;
+  }
+  body.home-tablet .rd-xcard__light {
+    left: 50%;
+    top: -20px;
+    width: 210px;
+    height: 210px;
+    margin-left: -105px;
+    translate: none;
+  }
+  body.home-tablet .rd-xcard__shadow {
+    left: 50%;
+    top: 152px;
+    width: 150px;
+    height: 22px;
+    margin-left: -75px;
+    translate: none;
+  }
+  body.home-tablet .rd-xcard__char {
+    left: 50%;
+    top: -73px;
+    width: 225px;
+    height: 225px;
+    margin-left: -112px;
+    translate: none;
+  }
+  body.home-tablet .rd-xcard__body {
+    left: 22px;
+    top: 196px;
+    width: calc(100% - 44px);
+    gap: 10px;
+  }
+  body.home-tablet .rd-xcard h3 {
+    font-size: 26px;
+  }
+  body.home-tablet .rd-xcard__body p {
+    font-size: 15px;
+    line-height: 23.5px;
+  }
+  body.home-tablet .rd-xcard__action {
+    left: 22px;
+    top: 364px;
+    width: calc(100% - 44px);
+  }
+
+  /* ---------- See it in action: its wavy top is the curved bottom of the Experience library ---------- */
+  body.home-tablet .rd-action::before {
+    background-size: 100% auto;
+    background-position: 0 0;
+  }
+  body.home-tablet .rd-action::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    bottom: -110px;
+    z-index: -1;
+    background: #fff;
+    pointer-events: none;
+  }
+
+  /* ---------- Purpose + Kalqy Difference: same wavy tops at true proportions; no tortoise on mobile ---------- */
+  body.home-tablet .rd-purpose::before,
+  body.home-tablet .rd-diff::before {
+    background-size: 100% auto;
+    background-position: 0 0;
+  }
+  body.home-tablet .rd-purpose::after,
+  body.home-tablet .rd-diff::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    bottom: -110px;
+    z-index: -1;
+    pointer-events: none;
+  }
+  body.home-tablet .rd-purpose::after {
+    background: linear-gradient(90deg, #fbf9f5, #fbfaf3 25%, #fbf8f2 50%, #f7f6f0 75%, #f6f5ee);
+  }
+  body.home-tablet .rd-diff::after {
+    background:
+      radial-gradient(ellipse 120px 22px at 62% 0, rgba(62, 28, 92, 0.55), rgba(62, 28, 92, 0) 100%),
+      linear-gradient(180deg, #1f1a54 0, #1b164f 300px, #181445 100%);
+  }
+  body.home-tablet .rd-diff__tortoise {
+    display: none;
+  }
+  /* Violet glow rising at the bottom of the Difference section (as in the mobile frame). */
+  body.home-tablet .rd-diff::after {
+    background:
+      radial-gradient(ellipse 120px 22px at 62% 0, rgba(62, 28, 92, 0.55), rgba(62, 28, 92, 0) 100%),
+      radial-gradient(ellipse 90% 300px at 50% calc(100% - 110px), rgba(84, 44, 170, 0.85), rgba(84, 44, 170, 0) 100%),
+      linear-gradient(180deg, #1f1a54 0, #1b164f 300px, #181445 100%);
+  }
+
+  /* ---------- For parents: its wavy top is the curved bottom of the Difference section ---------- */
+  body.home-tablet .rd-parents::before {
+    background-size: 100% auto;
+    background-position: 0 0;
+  }
+  body.home-tablet .rd-parents::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    bottom: -110px;
+    z-index: -1;
+    background: linear-gradient(90deg, #fcfaf6, #fbfaf3 25%, #fbf8f2 50%, #faf6f1 75%, #f6f5ee);
+    pointer-events: none;
+  }
+
+  /* ---------- Gallery + Clear information: wavy tops at true proportions (the info top is the gallery's curved bottom) ---------- */
+  body.home-tablet .rd-gallery::before,
+  body.home-tablet .rd-info::before {
+    background-size: 100% auto;
+    background-position: 0 0;
+  }
+  body.home-tablet .rd-gallery::after,
+  body.home-tablet .rd-info::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    bottom: -110px;
+    z-index: -1;
+    pointer-events: none;
+  }
+  body.home-tablet .rd-gallery::after {
+    background: linear-gradient(90deg, #fcfaf6, #fbfaf3 25%, #faf8f2 50%, #faf6f1 75%, #f7f6f0);
+  }
+  body.home-tablet .rd-info::after {
+    background: linear-gradient(90deg, #eef7fb, #effbf9 25%, #ebf9f7 50%, #eaf8f5 75%, #e6f6f5);
+  }
+
+  /* ---------- FAQ, "As seen on" and Reviews: wavy tops at true proportions (each top is the previous section's curved bottom) ---------- */
+  body.home-tablet .rd-faq::before,
+  body.home-tablet .rd-trust::before,
+  body.home-tablet .rd-reviews::before {
+    background-size: 100% auto;
+    background-position: 0 0;
+  }
+  body.home-tablet .rd-faq::after,
+  body.home-tablet .rd-trust::after,
+  body.home-tablet .rd-reviews::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    bottom: -110px;
+    z-index: -1;
+    pointer-events: none;
+  }
+  body.home-tablet .rd-faq::after {
+    background: #fff;
+  }
+  body.home-tablet .rd-trust::after {
+    background: linear-gradient(90deg, #fcfaf6, #fbf9f5 25%, #faf8f2 50%, #faf6f1 75%, #f8f4ee);
+  }
+  body.home-tablet .rd-reviews::after {
+    background:
+      radial-gradient(ellipse 120px 22px at 62% 0, rgba(62, 28, 92, 0.55), rgba(62, 28, 92, 0) 100%),
+      linear-gradient(180deg, #1f1a54 0, #1a164c 300px, #181445 700px, #0f0b2f 100%);
+  }
+
+  /* ---------- Closing + footer waves: wavy top at true proportions; the colour-wave band under it keeps the same proportions ---------- */
+  body.home-tablet .rd-closing::before {
+    background-size: 100% auto;
+    background-position: 0 0;
+  }
+  body.home-tablet .rd-closing::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    bottom: -384px; /* the closing background also runs behind the footer's wave band */
+    z-index: -1;
+    background: linear-gradient(90deg, #efdff9, #ede5fc 25%, #f7f5ff 50%, #f8f6ff 75%, #f8f6ff);
+    pointer-events: none;
+  }
+  body.home-tablet .rd-footer__waves {
+    height: 93px; /* 390px wide x (344 / 1440) */
+  }
+  body.home-tablet .rd-footer__waves > img:first-child {
+    height: 93px;
+  }
+  /* The footer mascot is the bubble fish on mobile (same trick as the tablet boar: swap the image with CSS). */
+  body.home-tablet .rd-footer__lion {
+    content: url("/images/games/bird.png");
+    object-fit: contain;
+    z-index: 3;
+    right: 14px;
+    top: -6px;
+    width: 62px;
+    height: auto;
+  }
+
+  /* ---------- Closing: full-width stacked buttons, no characters ---------- */
+  body.home-tablet img.rd-closing__pig {
+    display: none;
+  }
+  body.home-tablet .rd-closing {
+    padding-bottom: 40px;
+  }
+  body.home-tablet .rd-closing__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+  body.home-tablet .rd-closing__actions {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    gap: 12px;
+  }
+  body.home-tablet .rd-closing__actions .rd-btn {
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    border-radius: 14px;
+  }
+
+  /* ---------- Footer: brand, two link columns (Support wraps under Explore), social row, then copyright + back-to-top ---------- */
+  body.home-tablet .rd-footer__body {
+    padding: 28px 20px 28px;
+  }
+  body.home-tablet .rd-footer__cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 24px;
+  }
+  body.home-tablet .rd-footer__brand {
+    grid-column: 1 / -1;
+  }
+  body.home-tablet .rd-footer__brand p {
+    margin: 18px 0 14px;
+    font-size: 14px;
+  }
+  body.home-tablet .rd-footer__group h2 {
+    margin-bottom: 14px;
+  }
+  body.home-tablet .rd-footer__group ul {
+    gap: 12px;
+  }
+  body.home-tablet .rd-footer__divider {
+    margin: 40px auto 28px;
+  }
+  body.home-tablet .rd-footer__bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    row-gap: 24px;
+  }
+  body.home-tablet .rd-footer__social {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    flex-wrap: wrap;
+  }
+  body.home-tablet .rd-footer__bar > p {
+    grid-column: 1;
+    grid-row: 2;
+    color: rgba(250, 249, 246, 0.85);
+  }
+  body.home-tablet .rd-footer__legal {
+    display: contents;
+  }
+  body.home-tablet .rd-footer__legal > span {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: -14px;
+    color: rgba(250, 249, 246, 0.85);
+  }
+  body.home-tablet .rd-footer__legal a:not(.rd-footer__top) {
+    color: rgba(250, 249, 246, 0.85);
+  }
+  body.home-tablet .rd-footer__top {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    align-self: center;
+  }
+
+  /* ---------- Hero stage on other phone widths ---------- */
+  @media (max-width: 374px) {
+    body.home-tablet .rd-visual {
+      zoom: 0.56;
+    }
+    body.home-tablet .rd-hero__visual {
+      height: 292px;
+    }
+  }
+  @media (max-width: 339px) {
+    body.home-tablet .rd-visual {
+      zoom: 0.5;
+    }
+    body.home-tablet .rd-hero__visual {
+      height: 260px;
+    }
+  }
+  @media (min-width: 480px) {
+    body.home-tablet .rd-visual {
+      zoom: 0.75;
+    }
+    body.home-tablet .rd-hero__visual {
+      height: 390px;
+    }
+  }
+  @media (min-width: 600px) {
+    body.home-tablet .rd-visual {
+      zoom: 0.85;
+    }
+    body.home-tablet .rd-hero__visual {
+      height: 442px;
+    }
+  }
+}

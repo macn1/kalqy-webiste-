@@ -56,7 +56,9 @@ export function WelcomeBenefits() {
       <section className="rd-hero" aria-labelledby="hero-title">
         <div className="rd-hero__inner">
           <div className="rd-hero__copy">
-            <span className="rd-chip rd-chip--ink">THE KALQY KIT</span>
+            <span className="rd-chip rd-chip--ink">
+              THE KALQY KIT<span className="rd-mob-only">&nbsp;· NOW LAUNCHING</span>
+            </span>
             <h1 id="hero-title">
               Play. Move.
               <span className="rd-hero__accent">Learn. Grow.</span>

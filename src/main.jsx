@@ -11,6 +11,7 @@ import "@/styles/redesign-sections.css";
 import "@/styles/redesign-experience.css";
 import "@/styles/redesign-rest.css";
 import "@/styles/redesign-tablet.css";
+import "@/styles/redesign-mobile.css";
 import App from "./App";
 
 createRoot(document.getElementById("root")).render(
