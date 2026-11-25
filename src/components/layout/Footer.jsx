@@ -9,7 +9,7 @@ const groups = [
     title: "Explore",
     color: "#77ddb3",
     links: [
-      ["How It Works", "/product"],
+      ["How It Works", "/how-it-works"],
       ["Explore Experiences", "/games"],
       ["About Kalqy", "/about"],
     ],

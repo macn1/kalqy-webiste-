@@ -34,7 +34,7 @@ export function ReviewsSection() {
       <span className="rd-reviews__glow fx-pulse" aria-hidden="true" />
       <span className="rd-reviews__star fx-twinkle" aria-hidden="true">
         ✦
-      </span> make 
+      </span> 
       <Reveal as="header" className="rd-reviews__head">
         <div>
           <h2 id="reviews-title" className="rd-h2 rd-h2--64">

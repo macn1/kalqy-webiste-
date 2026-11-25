@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1440" height="458.811" viewBox="0 0 1440 458.811" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="Wave fill" d="M1440 32.3112C1180.8 -9.98879 979.2 -9.98879 720 27.8112C460.8 65.6112 259.2 65.6112 0 20.6112V458.811H1440V32.3112Z" fill="url(#paint0_linear_0_4)"/>
+<defs>
+<linearGradient id="paint0_linear_0_4" x1="38.1963" y1="65.7183" x2="356.449" y2="752.428" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F8F6FF"/>
+<stop offset="1" stop-color="#ECE8FF"/>
+</linearGradient>
+</defs>
+</svg>

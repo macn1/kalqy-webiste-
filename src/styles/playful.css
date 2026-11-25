@@ -1,0 +1,76 @@
+/* Playful motion kit (components/motion/playful.jsx): masks, bubbles and confetti shapes. */
+
+/* headline words rise out of a mask */
+.pw {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.pw__in {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* button wrapper that bounces */
+.pw-tap {
+  display: inline-flex;
+}
+
+/* speech bubble that pops out of a character */
+.pw-bubble {
+  position: absolute;
+  z-index: 3;
+  padding: 10px 16px;
+  border-radius: 18px 18px 18px 4px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(32, 33, 58, 0.18);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--rd-ink);
+  pointer-events: none;
+}
+
+/* confetti */
+.pw-sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.pw-shape {
+  position: absolute;
+  display: block;
+}
+.pw-shape i {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.pw-shape--star i {
+  background: var(--c);
+  clip-path: polygon(50% 0, 62% 35%, 98% 38%, 70% 60%, 80% 96%, 50% 76%, 20% 96%, 30% 60%, 2% 38%, 38% 35%);
+}
+.pw-shape--ring i {
+  border-radius: 50%;
+  border: 8px solid var(--c);
+}
+.pw-shape--pill i {
+  border-radius: 999px;
+  background: var(--c);
+}
+.pw-shape--dot i {
+  border-radius: 50%;
+  background: var(--c);
+}
+
+@media (max-width: 720px) {
+  .pw-shape {
+    transform-origin: center;
+    scale: 0.7;
+  }
+}

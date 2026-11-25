@@ -1,32 +1,26 @@
-import { GamesExplorer } from "@/components/games/GamesExplorer";
-import { FinalCTA } from "@/components/home/FinalCTA";
-import { SectionHeading } from "@/components/layout/SectionHeading";
-import { games } from "@/data/games";
+import { useEffect } from "react";
+import { ExploreIntro } from "@/components/explore/ExploreIntro";
+import { ExploreLibrary } from "@/components/explore/ExploreLibrary";
+import { ExploreClosing } from "@/components/explore/ExploreClosing";
 import { pageMeta } from "@/utils/metadata";
+
 export const metadata = pageMeta(
-  "Explore Kalqy games",
-  `Browse all ${games.length} Kalqy movement-based learning games, from reading and math to music and calm sensory play. Played with a webcam.`,
+  "Explore Kalqy experiences",
+  "Seven playful movement-based experiences across reading, science, music and more. Search by name or browse by topic.",
   "/games",
 );
+
 export default function GamesPage() {
+  // Same hook the home page uses: it switches the shared header and footer to their tablet / mobile layouts.
+  useEffect(() => {
+    document.body.classList.add("home-tablet");
+    return () => document.body.classList.remove("home-tablet");
+  }, []);
   return (
-    <>
-      <section className="section page-hero" style={{ paddingBottom: 0 }}>
-        <div className="container">
-          <SectionHeading
-            as="h1"
-            eyebrow="Game library"
-            title="All your learning adventures"
-            intro="Movement-based games for young children, powered by your webcam. No extra hardware required."
-          />
-        </div>
-      </section>
-      <section className="section" style={{ paddingTop: 24 }} aria-label="Games">
-        <div className="container">
-          <GamesExplorer />
-        </div>
-      </section>
-      <FinalCTA />
-    </>
+    <div className="hw ex">
+      <ExploreIntro />
+      <ExploreLibrary />
+      <ExploreClosing />
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation, useParams } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Seo } from "@/components/layout/Seo";
@@ -12,7 +12,7 @@ import * as Faq from "@/pages/Faq";
 import * as Games from "@/pages/Games";
 import * as GameDetail from "@/pages/GameDetail";
 import * as Privacy from "@/pages/Privacy";
-import * as Product from "@/pages/Product";
+import * as HowItWorks from "@/pages/HowItWorks";
 import * as Schools from "@/pages/Schools";
 import * as Terms from "@/pages/Terms";
 import * as Testimonials from "@/pages/Testimonials";
@@ -51,6 +51,12 @@ function Page({ mod }) {
   );
 }
 
+/** The old /product URL (still linked from the home page) now lives at /how-it-works; keep the #hash so anchors survive. */
+function ProductRedirect() {
+  const { hash } = useLocation();
+  return <Navigate to={`/how-it-works${hash}`} replace />;
+}
+
 const routes = [
   ["/", Home],
   ["/about", About],
@@ -59,7 +65,7 @@ const routes = [
   ["/games", Games],
   ["/games/:slug", GameDetail],
   ["/privacy", Privacy],
-  ["/product", Product],
+  ["/how-it-works", HowItWorks],
   ["/schools", Schools],
   ["/terms", Terms],
   ["/testimonials", Testimonials],
@@ -81,6 +87,7 @@ export default function App() {
           {routes.map(([path, mod]) => (
             <Route key={path} path={path} element={<Page mod={mod} />} />
           ))}
+          <Route path="/product" element={<ProductRedirect />} />
         </Routes>
       </main>
       <Footer />
