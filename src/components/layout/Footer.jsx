@@ -1,6 +1,8 @@
 import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
+import { useLocation } from "react-router-dom";
 import { site } from "@/data/site";
+import { Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const groups = [
   {
@@ -39,15 +41,18 @@ const social = [
 ];
 
 export function Footer() {
+  // The entrance only plays on the homepage; every other page shows the footer straight away.
+  const { pathname } = useLocation();
+  const calm = pathname !== "/" ? { initial: "show" } : {};
   return (
     <footer className="site-footer rd-footer">
       <div className="rd-footer__waves" aria-hidden="true">
         <Image src="/images/redesign/footer-waves.svg" width={1440} height={344} />
-        <Image className="rd-footer__lion" src="/images/redesign/footer-character.webp" width={152} height={217} />
+        <Image className="rd-footer__lion fx-sway" data-sparkle="" src="/images/redesign/footer-character.webp" width={152} height={217} />
       </div>
       <div className="rd-footer__body">
-        <div className="rd-footer__cols">
-          <div className="rd-footer__brand">
+        <Stagger className="rd-footer__cols" gap={0.1} {...calm}>
+          <StaggerItem className="rd-footer__brand" y={16}>
             <Link href="/" aria-label="Kalqy home">
               <Image src="/images/redesign/logo.png" alt="Kalqy" width={140} height={43} />
             </Link>
@@ -57,9 +62,9 @@ export function Footer() {
               <a href={site.phoneHref}>{site.phone}</a>
               <span>{site.address}</span>
             </address>
-          </div>
+          </StaggerItem>
           {groups.map((g) => (
-            <nav key={g.title} aria-label={g.title} className="rd-footer__group">
+            <StaggerItem as="nav" key={g.title} aria-label={g.title} className="rd-footer__group" y={16}>
               <h2 style={{ color: g.color }}>
                 <i style={{ background: g.color }} aria-hidden="true" />
                 {g.title}
@@ -71,9 +76,9 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </nav>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
         <Image className="rd-footer__divider" src="/images/redesign/footer-divider.svg" width={1280} height={12} aria-hidden="true" />
         <div className="rd-footer__bar">
           <p>© {new Date().getFullYear()} {site.legalName}.</p>

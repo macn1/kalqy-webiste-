@@ -1,5 +1,6 @@
 import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const cards = [
   {
@@ -35,24 +36,24 @@ export function hereExperienceLibrary() {
   return (
     <section className="rd-sec rd-lib" aria-labelledby="lib-title">
       <div className="rd-lib__head">
-        <div>
+        <Reveal>
           <span className="rd-lib__pill rd-tab-only">NEW EXPERIENCES</span>
           <h2 id="lib-title">
             Something new to <span>discover.</span>
           </h2>
           <p>A first look at three Kalqy experiences and the characters children meet along the way.</p>
-        </div>
+        </Reveal>
         <Link href="/games" className="rd-lib__cta">
           Explore All Experiences <span aria-hidden="true">↗</span>
         </Link>
       </div>
-      <ul className="rd-lib__cards">
+      <Stagger as="ul" className="rd-lib__cards" gap={0.14}>
         {cards.map((c) => (
-          <li className={`rd-xcard rd-xcard--${c.tone}`} key={c.n}>
+          <StaggerItem as="li" className={`rd-xcard rd-xcard--${c.tone}`} key={c.n} y={36}>
             <span className="rd-xcard__arch" aria-hidden="true" />
-            <Image className="rd-xcard__light" src="/images/redesign/exp-portal-light.svg" width={180} height={180} />
+            <Image className="rd-xcard__light fx-pulse" src="/images/redesign/exp-portal-light.svg" width={180} height={180} />
             <Image className="rd-xcard__shadow" src="/images/redesign/exp-char-shadow.svg" width={170} height={26} />
-            <Image className="rd-xcard__char" src={`/images/redesign/${c.char}`} width={300} height={300} />
+            <Image className="rd-xcard__char fx-sway" data-sparkle="" src={`/images/redesign/${c.char}`} width={300} height={300} />
             <span className="rd-xcard__n" aria-hidden="true">
               {c.n}
             </span>
@@ -70,9 +71,9 @@ export function hereExperienceLibrary() {
                 <Image src="/images/redesign/exp-arrow.svg" width={20} height={20} />
               </i>
             </Link>
-          </li>
+          </StaggerItem>
         ))}
-      </ul>
+      </Stagger>
     </section>
   );
 }

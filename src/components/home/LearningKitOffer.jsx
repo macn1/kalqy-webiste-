@@ -1,5 +1,6 @@
 import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const items = [
   {
@@ -55,7 +56,7 @@ function Visual({ kind }) {
 export function LearningKitOffer() {
   return (
     <section className="rd-offer" aria-labelledby="offer-title">
-      <header className="rd-offer__head">
+      <Reveal as="header" className="rd-offer__head">
         <span className="rd-chip rd-chip--yellow rd-tab-only">THE KALQY HOME LEARNING KIT</span>
         <h2 id="offer-title">
           Everything your child needs
@@ -65,11 +66,11 @@ export function LearningKitOffer() {
           Three things that work together: hands-on toys, screen games that respond to every move, and an app that shows
           parents how their child is growing.
         </p>
-      </header>
+      </Reveal>
       <div className="rd-offer__grid">
-        <ul className="rd-offer__items">
+        <Stagger as="ul" className="rd-offer__items" gap={0.12}>
           {items.map((it) => (
-            <li className="rd-item" style={{ "--item-bg": it.bg }} key={it.n}>
+            <StaggerItem as="li" className="rd-item" style={{ "--item-bg": it.bg }} key={it.n}>
               <div className="rd-item__visual" aria-hidden="true">
                 <Visual kind={it.visual} />
               </div>
@@ -80,10 +81,10 @@ export function LearningKitOffer() {
                 <p>{it.text}</p>
                 <p className="rd-item__note">{it.note}</p>
               </div>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
-        <aside className="rd-price" aria-label="Kalqy Home Kit offer">
+        </Stagger>
+        <Reveal as="aside" className="rd-price" aria-label="Kalqy Home Kit offer" delay={0.1}>
           <span className="rd-chip rd-chip--pink">LIMITED-TIME OFFER</span>
           <h3>
             Kalqy Home <span className="rd-tab-only">Learning </span>Kit
@@ -99,9 +100,9 @@ export function LearningKitOffer() {
           </div>
           <p className="rd-price__save rd-tab-only">You save ₹15,000</p>
           <hr />
-          <ul className="rd-price__list">
+          <Stagger as="ul" className="rd-price__list" gap={0.08} delay={0.2}>
             {includes.map((t) => (
-              <li key={t}>
+              <StaggerItem as="li" key={t} y={10}>
                 <span aria-hidden="true">✓</span>
                 {t === includes[3] ? (
                   <>
@@ -111,9 +112,9 @@ export function LearningKitOffer() {
                 ) : (
                   t
                 )}
-              </li>
+              </StaggerItem>
             ))}
-          </ul>
+          </Stagger>
           <Link href="/product#download" className="rd-price__btn">
             <span>
               Get the <span className="rd-tab-hide">Kalqy</span>
@@ -121,7 +122,7 @@ export function LearningKitOffer() {
             </span>
           </Link>
           <p className="rd-price__foot rd-tab-only">[Delivery time, payment options and offer end date]</p>
-        </aside>
+        </Reveal>
       </div>
     </section>
   );

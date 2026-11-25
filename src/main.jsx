@@ -12,12 +12,17 @@ import "@/styles/redesign-experience.css";
 import "@/styles/redesign-rest.css";
 import "@/styles/redesign-tablet.css";
 import "@/styles/redesign-mobile.css";
+import "@/styles/motion.css";
+import "@/styles/hero-slides.css";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 import App from "./App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <MotionProvider>
+        <App />
+      </MotionProvider>
     </BrowserRouter>
   </StrictMode>,
 );

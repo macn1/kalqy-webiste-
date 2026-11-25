@@ -1,5 +1,6 @@
 import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
+import { CountText, CountUp, GrowBar, Parallax, Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const tabs = ["Child progress", "Results", "Therapist help"];
 
@@ -36,45 +37,58 @@ const recent = [
 export function ParentAppSlideshow() {
   return (
     <section className="rd-app" id="parents" aria-labelledby="app-title">
-      <Image className="rd-app__deco" src="/images/redesign/app-deco.svg" width={620} height={620} aria-hidden="true" />
-      <div className="rd-app__copy">
-        <span className="rd-chip rd-chip--violet">KALQY PARENT APP</span>
-        <ol className="rd-app__tabs" aria-label="Parent App views">
+      <Parallax
+        as="img"
+        speed={0.1}
+        className="rd-app__deco"
+        src="/images/redesign/app-deco.svg"
+        width={620}
+        height={620}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+      />
+      <Stagger className="rd-app__copy" gap={0.08}>
+        <StaggerItem as="span" className="rd-chip rd-chip--violet">
+          KALQY PARENT APP
+        </StaggerItem>
+        <StaggerItem as="ol" className="rd-app__tabs" aria-label="Parent App views">
           {tabs.map((t, i) => (
             <li key={t} className={i === 0 ? "is-active" : undefined} aria-current={i === 0 ? "true" : undefined}>
               <b>{String(i + 1).padStart(2, "0")}</b> {t}
             </li>
           ))}
-        </ol>
-        <h2 id="app-title">
+        </StaggerItem>
+        <StaggerItem as="h2" id="app-title">
           See how your child grows,
           <span>one move at a time.</span>
-        </h2>
-        <p className="rd-app__lead">
+        </StaggerItem>
+        <StaggerItem as="p" className="rd-app__lead">
           Every game your child plays turns into simple insights on your phone, so you always know what they’re learning,
           where they shine and what to practise next.
-        </p>
-        <ul className="rd-app__features">
+        </StaggerItem>
+        <Stagger as="ul" className="rd-app__features" gap={0.06}>
           {features.map(([icon, title, text]) => (
-            <li key={title}>
+            <StaggerItem as="li" key={title} y={14}>
               <span aria-hidden="true">{icon}</span>
               <div>
                 <strong>{title}</strong>
                 <small>{text}</small>
               </div>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
-        <div className="rd-app__actions">
+        </Stagger>
+        <StaggerItem className="rd-app__actions">
           <Link href="/product#download" className="rd-btn rd-btn--violet rd-btn--lg">
             Get the app with the Learning Kit
           </Link>
           <p>Included free in the ₹4,999 Learning Kit</p>
-        </div>
-      </div>
+        </StaggerItem>
+      </Stagger>
 
       <div className="rd-app__stage" aria-hidden="true">
-        <div className="rd-dash">
+        <Reveal className="rd-dash" y={40}>
           <div className="rd-dash__screen">
             <div className="rd-dash__top">
               <div>
@@ -87,7 +101,9 @@ export function ParentAppSlideshow() {
               {stats.map((s) => (
                 <div key={s.label} style={{ background: s.bg }}>
                   <p>{s.label}</p>
-                  <strong>{s.value}</strong>
+                  <strong>
+                    <CountText value={s.value} />
+                  </strong>
                 </div>
               ))}
             </div>
@@ -95,7 +111,7 @@ export function ParentAppSlideshow() {
               <p className="rd-dash__goal-label">WEEKLY GOAL</p>
               <p className="rd-dash__goal-title">Master fractions</p>
               <span className="rd-dash__goal-track">
-                <i style={{ width: 180 }} />
+                <GrowBar style={{ width: 180 }} />
               </span>
               <p className="rd-dash__goal-note">15 / 20 XP · 75% complete</p>
             </div>
@@ -104,10 +120,12 @@ export function ParentAppSlideshow() {
               <div className="rd-dash__skill" key={s.label}>
                 <div>
                   <span>{s.label}</span>
-                  <b>{s.pct}%</b>
+                  <b>
+                    <CountUp to={s.pct} />%
+                  </b>
                 </div>
                 <span className="rd-dash__track">
-                  <i style={{ width: `${(s.pct / 100) * 252}px`, background: s.color }} />
+                  <GrowBar style={{ width: `${(s.pct / 100) * 252}px`, background: s.color }} />
                 </span>
               </div>
             ))}
@@ -122,8 +140,8 @@ export function ParentAppSlideshow() {
               </div>
             ))}
           </div>
-        </div>
-        <div className="rd-float rd-float--a">
+        </Reveal>
+        <div className="rd-float rd-float--a fx-float fx-float--soft">
           <Image src="/images/redesign/app-dot-yellow.svg" width={10} height={10} />
           <div>
             <strong>Milestone unlocked ⭐</strong>
@@ -139,7 +157,7 @@ export function ParentAppSlideshow() {
         </div>
         <p className="rd-app__sample rd-tab-only">Sample data shown</p>
         <span className="rd-app__chip">See your child’s progress in the Parent App!</span>
-        <Image className="rd-app__boy" src="/images/brand/kalqy-mascot.webp" width={173} height={259} />
+        <Image className="rd-app__boy fx-sway" data-sparkle="" src="/images/brand/kalqy-mascot.webp" width={173} height={259} />
       </div>
     </section>
   );

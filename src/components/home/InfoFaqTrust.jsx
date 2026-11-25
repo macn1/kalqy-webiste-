@@ -1,7 +1,9 @@
 import { useId, useState } from "react";
 import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
+import { m as M } from "framer-motion";
 import { site } from "@/data/site";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const info = [
   ["What it does", "Connects body movement with on-screen games through smart movement tracking."],
@@ -13,23 +15,24 @@ const info = [
 export function ProductInfo() {
   return (
     <section className="rd-sec rd-bgsec rd-info" style={{ "--rd-bg": 'url("/images/redesign/bg-info.webp")' }} aria-labelledby="info-title">
-      <h2 id="info-title" className="rd-h2">
+      <Reveal as="h2" id="info-title" className="rd-h2">
         Built on clarity.
         <br />
         Designed for confidence.
-      </h2>
-      <dl className="rd-info__grid">
+      </Reveal>
+      <Stagger as="dl" className="rd-info__grid" gap={0.1}>
         {info.map(([t, d]) => (
-          <div key={t}>
+          <StaggerItem key={t}>
             <dt>{t}</dt>
             <dd>{d}</dd>
-          </div>
+          </StaggerItem>
         ))}
-      </dl>
+      </Stagger>
       <div className="rd-info__guide">
-        <span className="rd-info__chip">Got a question? Find it here!</span>
+        <span className="rd-info__chip fx-float fx-float--soft">Got a question? Find it here!</span>
         <Image
-          className="rd-info__boy"
+          className="rd-info__boy fx-sway"
+          data-sparkle=""
           src="/images/brand/730330632142dbf872a1859b9a9c25e0d279b137.png"
           alt=""
           width={184}
@@ -84,7 +87,7 @@ export function FaqSection() {
   return (
     <section className="rd-sec rd-bgsec rd-faq" id="faq" style={{ "--rd-bg": 'url("/images/redesign/bg-faq.webp")' }} aria-labelledby="faq-title">
       <div className="rd-faq__inner">
-        <div className="rd-faq__intro">
+        <Reveal className="rd-faq__intro">
           <p className="rd-eyebrow rd-eyebrow--blue">
             <span className="rd-tab-hide">FAQ</span>
             <span className="rd-tab-only">PLAYING KALQY</span>
@@ -95,12 +98,12 @@ export function FaqSection() {
             answered.
           </h2>
           <p className="rd-lead rd-lead--16">Everything parents ask before the first game.</p>
-        </div>
-        <div className="rd-faq__list">
+        </Reveal>
+        <Stagger className="rd-faq__list" gap={0.07}>
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div className="rd-faq__item" key={f.q}>
+              <StaggerItem className="rd-faq__item" key={f.q} y={16}>
                 <h3>
                   <button
                     type="button"
@@ -115,13 +118,26 @@ export function FaqSection() {
                     </i>
                   </button>
                 </h3>
-                <div id={`${base}-${i}`} role="region" aria-labelledby={`${base}-b${i}`} hidden={!isOpen}>
+                <M.div
+                  id={`${base}-${i}`}
+                  role="region"
+                  aria-labelledby={`${base}-b${i}`}
+                  aria-hidden={!isOpen}
+                  initial={false}
+                  animate={
+                    isOpen
+                      ? { height: "auto", opacity: 1, visibility: "visible" }
+                      : { height: 0, opacity: 0, transitionEnd: { visibility: "hidden" } }
+                  }
+                  transition={{ duration: 0.32, ease: [0.22, 0.8, 0.2, 1] }}
+                  style={{ overflow: "hidden" }}
+                >
                   <p>{f.a}</p>
-                </div>
-              </div>
+                </M.div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
       </div>
     </section>
   );
@@ -133,7 +149,7 @@ export function TrustSection() {
   return (
     <section className="rd-sec rd-bgsec rd-trust" style={{ "--rd-bg": 'url("/images/redesign/bg-seen.webp")' }} aria-labelledby="trust-title">
       <header className="rd-trust__head">
-        <div>
+        <Reveal>
           <span className="rd-trust__pill rd-tab-only">AS SEEN ON SCREEN &amp; ON STAGE</span>
           <h2 id="trust-title" className="rd-h2 rd-h2--56">
             Trusted on screen.
@@ -143,20 +159,20 @@ export function TrustSection() {
             Kalqy was featured on Manorama Online’s Elevate and demonstrated live at DIDAC, Asia’s largest edtech expo, so
             parents, schools and partners can see the product and the team behind it.
           </p>
-        </div>
-        <div className="rd-trust__actions">
+        </Reveal>
+        <Reveal className="rd-trust__actions" delay={0.12}>
           <a href={site.social.youtube} target="_blank" rel="noopener noreferrer" className="rd-btn rd-btn--primary rd-btn--md">
             ▶ Watch the episode<span className="visually-hidden"> (opens in a new tab)</span>
           </a>
           <Link href="/contact" className="rd-btn rd-btn--outline rd-btn--md">
             Partner with us <span aria-hidden="true">↗</span>
           </Link>
-        </div>
+        </Reveal>
       </header>
-      <article className="rd-episode">
-        <Image className="rd-trust__boy rd-tab-only" src="/images/brand/kalqy-mascot.webp" alt="" width={173} height={259} loading="lazy" />
+      <Reveal as="article" className="rd-episode" y={32}>
+        <Image className="rd-trust__boy rd-tab-only fx-sway" data-sparkle="" src="/images/brand/kalqy-mascot.webp" alt="" width={173} height={259} loading="lazy" />
         <div className="rd-episode__shot">
-          <span className="rd-episode__play rd-tab-only" aria-hidden="true">
+          <span className="rd-episode__play rd-tab-only fx-ring" aria-hidden="true">
             ▶
           </span>
           <Image src="/images/redesign/episode.jpg" alt="Manorama Online Elevate, Season 2: Dreams to Reality, featuring Kalqy" width={1079} height={567} />
@@ -168,16 +184,16 @@ export function TrustSection() {
           </div>
           <span>Full episode in 6 short parts</span>
         </div>
-        <ol className="rd-episode__parts" aria-label="Episode parts">
+        <Stagger as="ol" className="rd-episode__parts" aria-label="Episode parts" gap={0.06}>
           {parts.map((p, i) => (
-            <li key={p} className={i === 0 ? "is-on" : undefined}>
+            <StaggerItem as="li" key={p} className={i === 0 ? "is-on" : undefined} y={12}>
               {i === 0 ? "▶ " : ""}
               {p}
               <i />
-            </li>
+            </StaggerItem>
           ))}
-        </ol>
-      </article>
+        </Stagger>
+      </Reveal>
     </section>
   );
 }

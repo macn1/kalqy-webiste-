@@ -1,0 +1,282 @@
+/* Hero slide 2 (Parent App). Reuses the slide 1 type scale, gutters and spacing; only colours and the visual differ. */
+.rd-dots button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 99px;
+  background: #d2d3d8;
+  cursor: pointer;
+  transition: width 0.3s, background 0.3s;
+}
+.rd-dots button.is-on {
+  width: 36px;
+  background: var(--rd-ink);
+}
+
+.rd-hero--app .rd-hero__accent {
+  color: var(--rd-primary);
+}
+.rd-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rd-pills li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1.5px solid #e3e0fa;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--rd-ink);
+}
+.rd-btn--app {
+  background: var(--rd-primary);
+  color: #fff;
+}
+.rd-btn--app-line {
+  border-color: var(--rd-primary);
+  color: var(--rd-primary);
+}
+.rd-btn--app-line:hover {
+  color: var(--rd-primary);
+}
+
+/* Visual: the Parent App artwork fills the same 616x520 stage slide 1 uses, so zoom/sizing rules carry over. */
+.rd-visual__app {
+  left: 12px;
+  top: 0;
+  width: 593px;
+  height: 520px;
+  max-width: none;
+  object-fit: contain;
+}
+body.home-tablet .rd-visual--app::after {
+  content: none;
+}
+
+@media (max-width: 1180px) {
+  body.home-tablet .rd-pills {
+    order: 1;
+    margin-top: 20px;
+    gap: 10px;
+  }
+  body.home-tablet .rd-pills li {
+    padding: 8px 16px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 720px) {
+  body.home-tablet .rd-pills li {
+    font-size: 14px;
+  }
+}
+
+/* ---------- Slide 3: price drop ---------- */
+.rd-chip--red {
+  background: #e31c36;
+  color: #fff;
+}
+.rd-deal__old {
+  color: #e31c36;
+  text-decoration: line-through;
+  text-decoration-thickness: 0.07em;
+}
+.rd-deal__line {
+  display: block;
+}
+.rd-hero--deal .rd-deal__new {
+  display: inline;
+  color: var(--rd-primary);
+}
+.rd-pills--deal li {
+  padding: 14px 24px;
+  border: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.rd-pills--deal .is-save {
+  background: #7bdcb5;
+  color: var(--rd-ink);
+}
+.rd-pills--deal .is-limited {
+  background: #fde4e4;
+  color: #e31c36;
+}
+
+/* desktop stage (616x520); pieces sit where the design shows them */
+.rd-visual--deal > * {
+  max-width: none;
+}
+.rd-deal__kit {
+  left: -18px;
+  top: 52px;
+  width: 295px;
+  height: 278px;
+}
+.rd-deal__tag {
+  left: 4px;
+  top: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 118px;
+  padding: 10px 12px 8px;
+  border-radius: 12px;
+  background: #ffc94d;
+  box-shadow: 0 10px 22px rgba(32, 33, 58, 0.18);
+  transform: rotate(-8deg);
+  line-height: 1.05;
+  z-index: 3;
+}
+.rd-deal__tag s {
+  color: #e31c36;
+  font-size: 15px;
+  font-weight: 700;
+}
+.rd-deal__tag b {
+  color: var(--rd-ink);
+  font-size: 29px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.rd-deal__games {
+  left: 30px;
+  top: 250px;
+  width: 289px;
+  height: 272px;
+  z-index: 2;
+}
+.rd-deal__phone {
+  left: 323px;
+  top: 12px;
+  width: 236px;
+  height: 427px;
+}
+.rd-deal__label {
+  left: 345px;
+  top: 372px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(32, 33, 58, 0.18);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--rd-ink);
+  z-index: 4;
+}
+.rd-deal__plus {
+  left: 280px;
+  top: 262px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #20213a;
+  color: #ffc94d;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  z-index: 4;
+}
+.rd-deal__burst {
+  left: 306px;
+  top: 306px;
+  width: 140px;
+  height: 143px;
+  z-index: 5;
+  filter: drop-shadow(0 10px 18px rgba(227, 28, 54, 0.3));
+}
+
+/* tablet layout */
+@media (min-width: 721px) and (max-width: 1100px) {
+  body.home-tablet .rd-visual.rd-visual--deal {
+    zoom: 1;
+    width: 685px;
+    height: 427px;
+  }
+  body.home-tablet .rd-visual--deal::after {
+    content: none;
+  }
+  body.home-tablet .rd-deal__kit { left: -18px; top: 9px; width: 295px; height: 278px; }
+  body.home-tablet .rd-deal__tag { left: 0; top: 2px; width: 125px; }
+  body.home-tablet .rd-deal__games { left: 14px; top: 203px; width: 283px; height: 267px; }
+  body.home-tablet .rd-deal__phone { left: 489px; top: -10px; width: 218px; height: 394px; }
+  body.home-tablet .rd-deal__label { left: 460px; top: 318px; }
+  body.home-tablet .rd-deal__plus { left: 251px; top: 201px; width: 48px; height: 48px; }
+  body.home-tablet .rd-deal__burst { left: 435px; top: 267px; width: 120px; height: 123px; }
+  body.home-tablet .rd-pills--deal li { font-size: 18px; padding: 12px 22px; }
+}
+
+/* mobile layout */
+@media (max-width: 720px) {
+  body.home-tablet .rd-visual.rd-visual--deal {
+    zoom: 1;
+    width: 340px;
+    height: 300px;
+  }
+  body.home-tablet .rd-visual--deal::after {
+    content: none;
+  }
+  body.home-tablet .rd-deal__tag { display: none; }
+  body.home-tablet .rd-deal__kit { left: -18px; top: 6px; width: 195px; height: 184px; }
+  body.home-tablet .rd-deal__games { left: 10px; top: 137px; width: 192px; height: 181px; }
+  body.home-tablet .rd-deal__phone { left: 202px; top: -7px; width: 156px; height: 282px; }
+  body.home-tablet .rd-deal__label { left: 190px; top: 217px; padding: 6px 14px; font-size: 12px; }
+  body.home-tablet .rd-deal__plus { left: 168px; top: 131px; width: 48px; height: 48px; }
+  body.home-tablet .rd-deal__burst { left: 147px; top: -8px; width: 88px; height: 90px; }
+  body.home-tablet .rd-pills--deal li { font-size: 16px; padding: 10px 20px; }
+}
+@media (max-width: 380px) {
+  body.home-tablet .rd-visual.rd-visual--deal {
+    zoom: 0.92;
+  }
+}
+
+/* ---------- Slide 4: live demo ---------- */
+.rd-visual--demo > .rd-demo__img {
+  left: 5px;
+  top: 0;
+  width: 606px;
+  height: 520px;
+  max-width: none;
+}
+@media (min-width: 1101px) {
+  .rd-hero--demo {
+    background: #f0edff;
+  }
+  .rd-hero--demo::after {
+    display: none;
+  }
+}
+/* tablet + mobile: the card runs the full content width (the artwork has a ~5% shadow margin, hence 110%) */
+@media (max-width: 1100px) {
+  body.home-tablet .rd-hero__visual.rd-hero__visual--demo {
+    height: auto;
+  }
+  body.home-tablet .rd-visual.rd-visual--demo {
+    zoom: 1;
+    width: 100%;
+    height: auto;
+  }
+  body.home-tablet .rd-visual--demo::after {
+    content: none;
+  }
+  body.home-tablet .rd-visual--demo > .rd-demo__img {
+    position: static;
+    display: block;
+    width: 110%;
+    height: auto;
+    margin-left: -5%;
+  }
+}

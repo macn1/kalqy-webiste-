@@ -2,6 +2,7 @@ import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
 import { useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, m as M } from "framer-motion";
 import { announcement, headerCta, primaryNav } from "@/data/navigation";
 import { Icon } from "@/components/common/Icon";
 import { LinkButton } from "@/components/common/LinkButton";
@@ -127,29 +128,47 @@ export function Header() {
               setOpen((o) => !o);
             }}
           >
-            <Icon name={open ? "close" : "menu"} />
+            <AnimatePresence mode="wait" initial={false}>
+              <M.span
+                key={open ? "close" : "menu"}
+                style={{ display: "grid" }}
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0, transition: { duration: 0.1 } }}
+              >
+                <Icon name={open ? "close" : "menu"} />
+              </M.span>
+            </AnimatePresence>
           </button>
         </div>
       </div>
 
-      {open && (
-        <div id="mobile-menu" ref={menuRef} className="mobile-nav">
-          <nav aria-label="Mobile">
-            <ul>
-              {primaryNav.map((item, i) => (
-                <li key={item.href} style={{ "--i": i }}>
-                  <Link className="nav-link" href={item.href} aria-current={isCurrent(item.href) ? "page" : undefined}>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <LinkButton href={headerCta.href} icon="download">
-            {headerCta.label}
-          </LinkButton>
-        </div>
-      )}
+      {/* The menu already fades in with CSS; AnimatePresence adds the matching exit. */}
+      <AnimatePresence>
+        {open && (
+          <M.div
+            id="mobile-menu"
+            ref={menuRef}
+            className="mobile-nav"
+            exit={{ opacity: 0, y: -12, transition: { duration: 0.18 } }}
+          >
+            <nav aria-label="Mobile">
+              <ul>
+                {primaryNav.map((item, i) => (
+                  <li key={item.href} style={{ "--i": i }}>
+                    <Link className="nav-link" href={item.href} aria-current={isCurrent(item.href) ? "page" : undefined}>
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <LinkButton href={headerCta.href} icon="download">
+              {headerCta.label}
+            </LinkButton>
+          </M.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

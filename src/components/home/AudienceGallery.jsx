@@ -1,6 +1,7 @@
 import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
 import { site } from "@/data/site";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const parentSteps = [
   ["01", "Understand the experience", "Movement games make every lesson active."],
@@ -12,7 +13,7 @@ export function ParentsSection() {
   return (
     <section className="rd-sec rd-bgsec rd-parents" id="parent-info" style={{ "--rd-bg": 'url("/images/redesign/bg-parents.webp")' }} aria-labelledby="parents-title">
       <div className="rd-split">
-        <div className="rd-parents__invite">
+        <Reveal className="rd-parents__invite">
           <p className="rd-eyebrow rd-eyebrow--blue">FOR PARENTS</p>
           <h2 id="parents-title" className="rd-h2">
             More confidence in every experience.
@@ -23,18 +24,18 @@ export function ParentsSection() {
           <Link href="/product#parents" className="rd-btn rd-btn--outline-violet">
             Information for Parents
           </Link>
-        </div>
-        <ol className="rd-parents__card">
+        </Reveal>
+        <Stagger as="ol" className="rd-parents__card" gap={0.12} delay={0.1}>
           {parentSteps.map(([n, title, text]) => (
-            <li key={n}>
-              <span className="rd-parents__marker" aria-hidden="true">
+            <StaggerItem as="li" key={n}>
+              <span className="rd-parents__marker" aria-hidden="true" data-sparkle="">
                 {n}
               </span>
               <h3>{title}</h3>
               <p>{text}</p>
-            </li>
+            </StaggerItem>
           ))}
-        </ol>
+        </Stagger>
       </div>
     </section>
   );
@@ -44,13 +45,13 @@ export function EducatorsSection() {
   return (
     <section className="rd-sec rd-bgsec rd-educators" style={{ "--rd-bg": 'url("/images/redesign/bg-educators.webp")' }} aria-labelledby="educators-title">
       <div className="rd-split">
-        <figure className="rd-educators__media">
+        <Reveal as="figure" className="rd-educators__media">
           <div className="rd-educators__poster">
             <Image src="/images/redesign/educators-demo.jpg" alt="Children and educators trying Kalqy at a live demonstration" width={616} height={360} />
           </div>
           <figcaption>Children and educators trying Kalqy at a live demonstration.</figcaption>
-        </figure>
-        <div className="rd-educators__copy">
+        </Reveal>
+        <Reveal className="rd-educators__copy" delay={0.12}>
           <p className="rd-eyebrow rd-eyebrow--blue">FOR EDUCATORS</p>
           <h2 id="educators-title" className="rd-h2">
             Bring a new dimension to learning.
@@ -67,7 +68,7 @@ export function EducatorsSection() {
               Request a Demo
             </Link>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -77,14 +78,14 @@ export function GallerySection() {
   return (
     <section className="rd-sec rd-bgsec rd-gallery" style={{ "--rd-bg": 'url("/images/redesign/bg-gallery.webp")' }} aria-labelledby="gallery-title">
       <div className="rd-gallery__inner">
-        <header>
+        <Reveal as="header">
           <h2 id="gallery-title" className="rd-h2">
             See learning come to life.
           </h2>
           <p>Moments of movement, play and learning from classrooms and live demos.</p>
-        </header>
+        </Reveal>
         <div className="rd-gallery__row">
-          <article className="rd-didac">
+          <Reveal as="article" className="rd-didac">
             <div className="rd-didac__photo">
               <Image src="/images/redesign/gallery-didac.jpg" alt="Educators trying Kalqy at the DIDAC expo" width={426} height={190} />
               <span className="rd-didac__tag">LIVE DEMO</span>
@@ -99,17 +100,20 @@ export function GallerySection() {
                 Watch the DIDAC highlights ↗<span className="visually-hidden"> (opens in a new tab)</span>
               </a>
             </div>
-          </article>
-          <div className="rd-gallery__poster">
+          </Reveal>
+          <Reveal className="rd-gallery__poster" delay={0.12}>
             <Image src="/images/redesign/gallery-poster.jpg" alt="A child playing a Kalqy balloon game" width={800} height={323} />
-          </div>
+          </Reveal>
         </div>
-        <Image
+        <Reveal
+          as="img"
           className="rd-gallery__wide"
           src="/images/redesign/gallery-illustration.jpg"
           alt="Illustration of children moving together in front of a Kalqy game"
           width={1280}
           height={360}
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </section>

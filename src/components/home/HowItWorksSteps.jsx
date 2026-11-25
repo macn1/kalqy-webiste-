@@ -1,5 +1,6 @@
 import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
+import { GrowBar, Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const needs = [
   ["need-computer.svg", "A computer"],
@@ -25,17 +26,17 @@ function Pill({ dot, children }) {
 
 function Step({ n, title, text, bg, accent, children }) {
   return (
-    <li className="rd-step" style={{ "--step-bg": bg }}>
+    <StaggerItem as="li" className="rd-step" style={{ "--step-bg": bg }} y={28}>
       {children}
       <div className="rd-step__copy">
         <p className="rd-step__label" aria-hidden="true">
           {n}
-          <i style={accent ? { background: "var(--rd-primary)" } : undefined} />
+          <GrowBar style={accent ? { background: "var(--rd-primary)" } : undefined} />
         </p>
         <h3>{title}</h3>
         <p>{text}</p>
       </div>
-    </li>
+    </StaggerItem>
   );
 }
 
@@ -48,7 +49,7 @@ const bars = [
 export function HowItWorksSteps() {
   return (
     <section className="rd-how" id="how-it-works" aria-labelledby="how-title">
-      <header className="rd-how__head">
+      <Reveal as="header" className="rd-how__head">
         <div>
           <p className="rd-eyebrow">HOW IT WORKS</p>
           <h2 id="how-title">
@@ -62,9 +63,9 @@ export function HowItWorksSteps() {
             See how it works <span aria-hidden="true">→</span>
           </Link>
         </div>
-      </header>
+      </Reveal>
 
-      <ol className="rd-steps">
+      <Stagger as="ol" className="rd-steps" gap={0.14}>
         <Step
           n="01"
           title="Pick a game"
@@ -72,9 +73,9 @@ export function HowItWorksSteps() {
           bg="#ffeec5"
         >
           <div className="rd-step__visual rd-step__visual--tiles" aria-hidden="true">
-            <Image className="rd-tile rd-tile--a" src="/images/redesign/game-1.png" width={109} height={109} />
-            <Image className="rd-tile rd-tile--b" src="/images/redesign/game-2.png" width={109} height={109} />
-            <Image className="rd-tile rd-tile--c" src="/images/redesign/game-3.png" width={109} height={109} />
+            <Image className="rd-tile rd-tile--a fx-float" src="/images/redesign/game-1.png" width={109} height={109} />
+            <Image className="rd-tile rd-tile--b fx-float fx-float--b" src="/images/redesign/game-2.png" width={109} height={109} />
+            <Image className="rd-tile rd-tile--c fx-float fx-float--c" src="/images/redesign/game-3.png" width={109} height={109} />
             <Pill dot="pill-dot-blue.svg">7 published games</Pill>
           </div>
         </Step>
@@ -118,7 +119,7 @@ export function HowItWorksSteps() {
                     <b>{pct}%</b>
                   </div>
                   <span className="rd-weekcard__track">
-                    <i style={{ width: `${pct * 1.82}px`, background: color }} />
+                    <GrowBar style={{ width: `${pct * 1.82}px`, background: color }} />
                   </span>
                 </div>
               ))}
@@ -129,9 +130,9 @@ export function HowItWorksSteps() {
             <Pill dot="pill-dot-coral.svg">Updated after every game</Pill>
           </div>
         </Step>
-      </ol>
+      </Stagger>
 
-      <div className="rd-needs">
+      <Reveal className="rd-needs">
         <p>All you need</p>
         <ul>
           {needs.map(([icon, label]) => (
@@ -143,7 +144,7 @@ export function HowItWorksSteps() {
             </li>
           ))}
         </ul>
-      </div>
+      </Reveal>
     </section>
   );
 }

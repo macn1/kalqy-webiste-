@@ -1,5 +1,6 @@
 import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
+import { GrowBar, Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const reviews = [
   {
@@ -30,11 +31,11 @@ function Stars() {
 export function ReviewsSection() {
   return (
     <section className="rd-sec rd-bgsec rd-reviews" style={{ "--rd-bg": 'url("/images/redesign/bg-reviews.webp")' }} aria-labelledby="reviews-title">
-      <span className="rd-reviews__glow" aria-hidden="true" />
-      <span className="rd-reviews__star" aria-hidden="true">
+      <span className="rd-reviews__glow fx-pulse" aria-hidden="true" />
+      <span className="rd-reviews__star fx-twinkle" aria-hidden="true">
         ✦
       </span> make 
-      <header className="rd-reviews__head">
+      <Reveal as="header" className="rd-reviews__head">
         <div>
           <h2 id="reviews-title" className="rd-h2 rd-h2--64">
             Little players.
@@ -47,10 +48,10 @@ export function ReviewsSection() {
           <li>Educators</li>
           <li>Students</li>
         </ul>
-      </header>
-      <ul className="rd-reviews__cards">
+      </Reveal>
+      <Stagger as="ul" className="rd-reviews__cards" gap={0.14}>
         {reviews.map((r) => (
-          <li key={r.key} className={`rd-review${r.featured ? " rd-review--top" : ""}${r.key === "c" ? " rd-review--low" : ""}`}>
+          <StaggerItem as="li" key={r.key} y={32} className={`rd-review${r.featured ? " rd-review--top" : ""}${r.key === "c" ? " rd-review--low" : ""}`}>
             {r.featured && <span className="rd-review__ribbon">★ TOP REVIEW</span>}
             <div className="rd-review__player">
               <span className="rd-review__avatar" style={r.avatar ? { background: r.avatar, "--ring": r.avatar } : undefined} aria-hidden="true">
@@ -76,13 +77,13 @@ export function ReviewsSection() {
               <span className="rd-review__fun">
                 FUN LEVEL
                 <i>
-                  <b style={{ width: r.featured ? "100%" : "81%" }} />
+                  <GrowBar as="b" style={{ width: r.featured ? "100%" : "81%" }} delay={0.3} />
                 </i>
               </span>
             </div>
-          </li>
+          </StaggerItem>
         ))}
-      </ul>
+      </Stagger>
       <div className="rd-reviews__controls" aria-hidden="true">
         <span className="rd-reviews__progress">
           <i className="is-on" />
@@ -103,14 +104,14 @@ export function ClosingInvitation() {
   return (
     <section className="rd-sec rd-bgsec rd-closing" style={{ "--rd-bg": 'url("/images/redesign/bg-closing.webp")' }} aria-labelledby="closing-title">
       <div className="rd-closing__inner">
-        <div>
+        <Reveal>
           <h2 id="closing-title" className="rd-h2">
             Ready to discover Kalqy?
           </h2>
           <p>Start with a conversation about your setting, your questions and what comes next.</p>
-        </div>
+        </Reveal>
         <div className="rd-closing__actions">
-          <Image className="rd-closing__boy" src="/images/brand/kalqy-mascot.webp" alt="" width={173} height={259} loading="lazy" />
+          <Image className="rd-closing__boy fx-sway" data-sparkle="" src="/images/brand/kalqy-mascot.webp" alt="" width={173} height={259} loading="lazy" />
           <Image className="rd-closing__pig rd-tab-only" src="/images/hero/pig.png" alt="" width={508} height={814} loading="lazy" />
           <Link href="/product#download" className="rd-btn rd-btn--primary rd-btn--sm">
             Download Now <span aria-hidden="true">↗</span>
