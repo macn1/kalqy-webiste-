@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" overflow="hidden" style="display: block;" width="1440" height="344" viewBox="0 168 1440 344" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Waves" clip-path="url(#clip0_0_25)">
+<path id="Wave &#226;&#128;&#148; Yellow" d="M0 274.488C240 138.767 480 138.767 720 240.558C960 342.349 1200 395.668 1440 206.628V512H0V274.488Z" fill="#FBBA05"/>
+<path id="Wave &#226;&#128;&#148; Coral" d="M0 440.215C220 392.215 460 392.215 690 432.215C920 472.215 1170 484.215 1440 418.215V512.215H0V440.215Z" fill="#FF017B"/>
+<path id="Wave &#226;&#128;&#148; Mint" d="M0 464.215C260 422.215 520 430.215 760 460.215C1000 490.215 1220 498.215 1440 444.215V512.215H0V464.215Z" fill="#00BDB6"/>
+<path id="Wave &#226;&#128;&#148; Ink" d="M0 484.215C240 452.215 480 456.215 720 480.215C960 504.215 1200 510.215 1440 470.215V512.215H0V484.215Z" fill="#20213A"/>
+</g>
+<defs>
+<clipPath id="clip0_0_25">
+<rect width="1440" height="512" fill="white"/>
+</clipPath>
+</defs>
+</svg>

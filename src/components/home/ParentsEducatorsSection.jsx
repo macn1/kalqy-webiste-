@@ -25,7 +25,7 @@ export function ParentsEducatorsSection() {
               <li>Movement-based games instead of tap-and-swipe</li>
               <li>Kalqy describes progress insights for parents, such as strengths and areas to practise</li>
             </ul>
-            <LinkButton href="/product#parents" variant="primary">
+            <LinkButton href="/for-parents" variant="primary">
               See the parent guide
             </LinkButton>
           </article>

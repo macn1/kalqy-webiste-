@@ -1,0 +1,326 @@
+/* Privacy page (/privacy), from the "KALQY Sales — Privacy · Legal Layout Draft" layout. Desktop values are measured at 1440px;
+   tablet is 721–1100px and mobile 720px and below, the same breakpoints as the How It Works / For Parents pages.
+   The footer's wave band and fish mascot come from body.fp-page (see for-parents.css). */
+.pv {
+  --pv-gutter: clamp(20px, 5.55vw, 160px);
+  background: #fff;
+  color: var(--rd-ink);
+  overflow-x: clip;
+  padding-bottom: 72px;
+}
+
+/* ---------- hero: title, date and the turtle on a mint disc, under a soft wave ---------- */
+.pv-hero {
+  position: relative;
+  isolation: isolate;
+  height: 340px;
+  padding: 80px var(--pv-gutter) 0;
+  background: radial-gradient(60% 90% at 88% 20%, #ffe9cf 0%, rgba(255, 233, 207, 0) 70%), radial-gradient(55% 100% at 0% 100%, #e6e0ff 0%, rgba(230, 224, 255, 0) 75%),
+    linear-gradient(100deg, #f1eeff 0%, #f6f1fb 50%, #fdf1e3 100%);
+  -webkit-mask: url(/images/privacy/hero-mask.svg) 0 0 / 100% 100% no-repeat;
+  mask: url(/images/privacy/hero-mask.svg) 0 0 / 100% 100% no-repeat;
+}
+.pv-hero__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.pv-h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 4.45vw, 4rem);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+}
+.pv-hero__date {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--rd-secondary);
+}
+.pv-hero__disc {
+  position: absolute;
+  right: calc(var(--pv-gutter) + 5px);
+  top: 168px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: #c9f2e3;
+  z-index: -1;
+}
+.pv-hero__kid {
+  position: absolute;
+  right: calc(var(--pv-gutter) + 66px);
+  top: 148px;
+  width: 124px;
+  height: auto;
+  z-index: -1;
+}
+
+/* ---------- body: sticky table of contents + content ---------- */
+.pv-body {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 96px;
+  align-items: start;
+  padding: 16px var(--pv-gutter) 0;
+}
+.pv-toc {
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+.pv-toc__label {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--adventure-blue);
+}
+.pv-toc ol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pv-toc a {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 7px 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--rd-secondary);
+  text-decoration: none;
+  transition: color 0.2s, translate 0.2s;
+}
+.pv-toc a span {
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: #9a9cad;
+}
+.pv-toc a:hover {
+  color: var(--rd-ink);
+  translate: 3px 0;
+}
+.pv-toc a.is-on {
+  color: var(--adventure-blue);
+  font-weight: 500;
+}
+.pv-toc a.is-on span {
+  color: var(--adventure-blue);
+}
+.pv-toc__note {
+  margin: 8px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid #dadae6;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--rd-secondary);
+}
+
+.pv-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+.pv-callout {
+  margin-bottom: 40px;
+  padding: 32px;
+  border-radius: 24px;
+  background: var(--rd-lavender);
+}
+.pv-callout h2 {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.pv-callout p {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--rd-secondary);
+}
+.pv-callout small,
+.pv-contact small {
+  display: block;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--rd-secondary);
+}
+
+.pv-sec {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 40px 0 32px;
+  border-top: 1px solid #dadae6;
+  scroll-margin-top: 16px;
+}
+.pv-sec__n {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--adventure-blue);
+}
+.pv-sec h2 {
+  margin: 0 0 4px;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+.pv-sec p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--rd-secondary);
+}
+
+.pv-contact {
+  margin-top: 8px;
+  padding: 32px;
+  border-radius: 24px;
+  background: #f4f1ea;
+}
+.pv-contact h2 {
+  margin: 0 0 12px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.pv-contact p {
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--rd-secondary);
+}
+.pv-contact a {
+  color: inherit;
+}
+
+/* ---------- tablet ---------- */
+@media (min-width: 721px) and (max-width: 1100px) {
+  .pv {
+    --pv-gutter: 40px;
+  }
+  .pv-hero {
+    height: 280px;
+    padding-top: 64px;
+  }
+  .pv-h1 {
+    font-size: 48px;
+    line-height: 52px;
+  }
+  .pv-hero__disc {
+    top: 110px;
+    width: 210px;
+    height: 210px;
+  }
+  .pv-hero__kid {
+    right: calc(var(--pv-gutter) + 54px);
+    top: 96px;
+    width: 104px;
+  }
+  /* contents become a card above the text, in two columns */
+  .pv-body {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .pv-toc {
+    position: static;
+    padding: 24px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid rgba(32, 33, 58, 0.07);
+  }
+  .pv-toc ol {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+  }
+  .pv-toc__note {
+    margin-top: 0;
+  }
+}
+
+/* ---------- mobile ---------- */
+@media (max-width: 720px) {
+  .pv {
+    --pv-gutter: 20px;
+    padding-bottom: 56px;
+  }
+  .pv-hero {
+    height: 250px;
+    padding-top: 48px;
+  }
+  .pv-h1 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+  .pv-hero__copy {
+    gap: 12px;
+  }
+  .pv-hero__disc {
+    top: 120px;
+    right: 14px;
+    width: 150px;
+    height: 150px;
+  }
+  .pv-hero__kid {
+    top: 110px;
+    right: 44px;
+    width: 76px;
+  }
+  .pv-body {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 8px;
+  }
+  .pv-toc {
+    position: static;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid rgba(32, 33, 58, 0.07);
+  }
+  .pv-toc a {
+    padding: 8px 0;
+    font-size: 14px;
+  }
+  .pv-callout,
+  .pv-contact {
+    padding: 24px;
+    border-radius: 20px;
+  }
+  .pv-callout h2 {
+    font-size: 1.3rem;
+  }
+  .pv-sec {
+    padding: 32px 0 24px;
+  }
+  .pv-sec h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Terms page (/terms) reuses the privacy layout; its footer keeps the yellow wave band and swaps in the larger waving lion (desktop). */
+@media (min-width: 1101px) {
+  body.tm-page .rd-footer__lion {
+    content: url("/images/terms/footer-lion.png");
+    object-fit: contain;
+    right: 44px;
+    top: -52px;
+    width: 175px;
+    height: 239px;
+  }
+}

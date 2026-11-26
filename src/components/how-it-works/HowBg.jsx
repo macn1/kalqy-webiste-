@@ -3,9 +3,9 @@ import { DriftLight } from "@/components/motion/playful";
 export const IMG = "/images/how";
 
 /** Premium section background: wave-shaped gradient fill plus soft lights (they drift slowly) clipped to the same wave. */
-export function HowBg({ wave, lights = [], clip = true }) {
+export function HowBg({ wave, lights = [], clip = true, base = IMG }) {
   return (
-    <div className="hw-bg" aria-hidden="true" style={{ "--hw-wave": `url(${IMG}/${wave})` }}>
+    <div className="hw-bg" aria-hidden="true" style={{ "--hw-wave": `url(${base}/${wave})` }}>
       {clip && <span className="hw-bg__fill" />}
       <span className={clip ? "hw-bg__lights" : "hw-bg__lights hw-bg__lights--open"}>
         {lights.map(([src, x, y], i) => (

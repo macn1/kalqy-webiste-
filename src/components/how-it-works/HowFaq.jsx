@@ -3,7 +3,7 @@ import { m as M } from "framer-motion";
 import { Words } from "@/components/motion/playful";
 import { HowBg, light } from "./HowBg";
 
-const faqs = [
+export const howFaqs = [
   {
     q: "How do I start playing Kalqy?",
     a: "Download Kalqy on your Windows PC or Mac, open a game and stand a few steps back from the screen. Your child plays by moving: jumping, reaching, balancing and waving. No controller, mouse or touchscreen needed.",
@@ -28,14 +28,14 @@ const row = {
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 120, damping: 17 } },
 };
 
-export function HowFaq() {
+export function HowFaq({ faqs = howFaqs, title = "A few things to know.", wave = "faq-wave.svg", bgBase }) {
   const [open, setOpen] = useState(0);
   const base = useId();
   return (
     <section className="hw-sec hw-faq" aria-labelledby="hw-faq-title">
-      <HowBg wave="faq-wave.svg" lights={[light("light-faq.svg", -200, -260, 620, 0.2742)]} />
+      <HowBg wave={wave} base={bgBase} lights={[light(bgBase ? "../how/light-faq.svg" : "light-faq.svg", -200, -260, 620, 0.2742)]} />
       <Words as="h2" id="hw-faq-title" className="hw-h2">
-        A few things to know.
+        {title}
       </Words>
       <M.div className="hw-faq__list" variants={list} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
         {faqs.map((f, i) => {

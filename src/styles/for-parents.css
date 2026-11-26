@@ -1,0 +1,129 @@
+/* For Parents page (/for-parents), from Figma "KALQY Sales — For Parents". Shares the .hw-* background, type, button, split,
+   FAQ and gutter rules from how-it-works.css (and the home page's .rd-reviews section); only what is specific to this page is .fp-*.
+   Desktop values are the Figma values at 1440px; tablet (721–1100px) and mobile (≤720px) follow how-it-works.css. */
+
+.hw-h2--36 {
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+}
+
+/* ---------- intro: copy + official poster ---------- */
+.fp-intro .hw-bg {
+  background: var(--hw-wave) 0 0 / 100% 100% no-repeat;
+}
+.fp-intro .hw-split > * {
+  flex: 1 1 0;
+}
+.fp-media {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fp-media__caption {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--rd-secondary);
+}
+
+/* ---------- movement ---------- */
+.fp-narrow {
+  max-width: 940px;
+}
+
+/* ---------- access: copy + setup checklist ---------- */
+.fp-access .hw-split {
+  align-items: flex-start;
+}
+.fp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 0;
+  padding: 32px;
+  list-style: none;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 60%), var(--rd-lavender);
+  box-shadow: 0 18px 40px -14px rgba(32, 33, 59, 0.08);
+}
+.fp-card li {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.fp-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+}
+.fp-card p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--rd-secondary);
+}
+/* the number marker sits on the lavender card, so it takes the white tile look from the design */
+.fp-card .hw-step__n {
+  background: var(--rd-lavender);
+}
+
+/* ---------- tablet ---------- */
+@media (min-width: 721px) and (max-width: 1100px) {
+  .hw-h2--36 {
+    font-size: 36px;
+    line-height: 41px;
+  }
+  .fp-intro {
+    padding-top: 48px;
+  }
+  .fp-card {
+    padding: 28px;
+    gap: 24px;
+  }
+  .fp-card h3 {
+    font-size: 22px;
+  }
+}
+
+/* ---------- mobile ---------- */
+@media (max-width: 720px) {
+  .hw-h2--36 {
+    font-size: 30px;
+    line-height: 34px;
+  }
+  .fp-intro {
+    padding-top: 40px;
+  }
+  .fp-card {
+    padding: 24px;
+    gap: 24px;
+    border-radius: 20px;
+  }
+  .fp-card h3 {
+    font-size: 22px;
+  }
+}
+
+/* ---------- desktop footer for this page (Figma "Site footer"): the yellow wave band and the bubble-fish mascot ---------- */
+@media (min-width: 1101px) {
+  /* the closing background is 641px tall in the design: section (257) + wave band (344) + 40px tucked under the footer body */
+  .fp-close .hw-bg {
+    bottom: -384px;
+  }
+  body.fp-page .rd-footer__waves > img:first-child {
+    content: url("/images/parents/footer-band.svg"); /* the 344px of wave artwork the design shows above the footer body */
+    object-fit: fill; /* the curve stretches with the page width, like the design's wave */
+  }
+  body.fp-page .rd-footer__body {
+    border-top: 0; /* the faint straight rule would cut across the curved ink wave */
+  }
+  body.fp-page .rd-footer__lion {
+    content: url("/images/parents/footer-fish.webp");
+    object-fit: contain;
+    right: 38px;
+    top: -46px;
+    width: 255px;
+    height: 281px;
+  }
+}

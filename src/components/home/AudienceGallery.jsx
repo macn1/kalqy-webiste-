@@ -21,7 +21,7 @@ export function ParentsSection() {
           <p className="rd-lead">
             A clear starting point for grown-ups: understand the experience, the equipment and how access works.
           </p>
-          <Link href="/product#parents" className="rd-btn rd-btn--outline-violet">
+          <Link href="/for-parents" className="rd-btn rd-btn--outline-violet">
             Information for Parents
           </Link>
         </Reveal>

@@ -13,6 +13,7 @@ import * as Games from "@/pages/Games";
 import * as GameDetail from "@/pages/GameDetail";
 import * as Privacy from "@/pages/Privacy";
 import * as HowItWorks from "@/pages/HowItWorks";
+import * as ForParents from "@/pages/ForParents";
 import * as Schools from "@/pages/Schools";
 import * as Terms from "@/pages/Terms";
 import * as Testimonials from "@/pages/Testimonials";
@@ -66,6 +67,7 @@ const routes = [
   ["/games/:slug", GameDetail],
   ["/privacy", Privacy],
   ["/how-it-works", HowItWorks],
+  ["/for-parents", ForParents],
   ["/schools", Schools],
   ["/terms", Terms],
   ["/testimonials", Testimonials],
