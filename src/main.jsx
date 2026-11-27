@@ -15,10 +15,12 @@ import "@/styles/redesign-mobile.css";
 import "@/styles/motion.css";
 import "@/styles/hero-slides.css";
 import "@/styles/how-it-works.css";
+import "@/styles/about.css";
 import "@/styles/explore.css";
 import "@/styles/for-parents.css";
 import "@/styles/privacy.css";
 import "@/styles/playful.css";
+import "@/styles/lead-modal.css";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 import App from "./App";
 

@@ -1,5 +1,6 @@
 import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
+import { LeadButton } from "@/components/lead/LeadButton";
 import { CountText, CountUp, GrowBar, Parallax, Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const tabs = ["Child progress", "Results", "Therapist help"];
@@ -80,9 +81,9 @@ export function ParentAppSlideshow() {
           ))}
         </Stagger>
         <StaggerItem className="rd-app__actions">
-          <Link href="/product#download" className="rd-btn rd-btn--violet rd-btn--lg">
+          <LeadButton className="rd-btn rd-btn--violet rd-btn--lg">
             Get the app with the Learning Kit
-          </Link>
+          </LeadButton>
           <p>Included free in the ₹4,999 Learning Kit</p>
         </StaggerItem>
       </Stagger>

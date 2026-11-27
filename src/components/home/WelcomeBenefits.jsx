@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { m as M } from "framer-motion";
 import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
+import { LeadButton } from "@/components/lead/LeadButton";
 import { Stagger, StaggerItem, spring } from "@/components/motion/primitives";
 
 // Hero entrance: the copy lines rise in one after another, then the visual settles in.
@@ -164,9 +165,9 @@ export function WelcomeBenefits() {
               <Link href="/product#demo" className="rd-btn rd-btn--ink">
                 <span aria-hidden="true">▶</span> Watch demo
               </Link>
-              <Link href="/product#download" className="rd-btn rd-btn--outline rd-btn--app-line">
+              <LeadButton className="rd-btn rd-btn--outline rd-btn--app-line">
                 Get the Kalqy Kit
-              </Link>
+              </LeadButton>
             </M.div>
             {pager}
           </M.div>
@@ -191,9 +192,9 @@ export function WelcomeBenefits() {
               <li className="is-limited">Limited-time price</li>
             </M.ul>
             <M.div className="rd-actions" variants={heroLine}>
-              <Link href="/product#download" className="rd-btn rd-btn--violet rd-btn--app">
+              <LeadButton className="rd-btn rd-btn--violet rd-btn--app">
                 Get the Kalqy Kit for ₹4,999
-              </Link>
+              </LeadButton>
               <Link href="/product" className="rd-btn rd-btn--outline rd-btn--app-line">
                 See what’s inside
               </Link>
@@ -222,9 +223,9 @@ export function WelcomeBenefits() {
               <span className="rd-price-line__note">for the complete ecosystem</span>
             </M.div>
             <M.div className="rd-actions" variants={heroLine}>
-              <Link href="/product#download" className="rd-btn rd-btn--primary fx-glow">
+              <LeadButton className="rd-btn rd-btn--primary fx-glow">
                 Explore the KALQY Kit
-              </Link>
+              </LeadButton>
               <Link href="/product" className="rd-btn rd-btn--outline">
                 Discover How It Works
               </Link>
@@ -255,9 +256,9 @@ export function WelcomeBenefits() {
               ))}
             </M.ul>
             <M.div className="rd-actions" variants={heroLine}>
-              <Link href="/product#download" className="rd-btn rd-btn--violet rd-btn--app">
+              <LeadButton className="rd-btn rd-btn--violet rd-btn--app">
                 Get the app with the Kalqy Kit
-              </Link>
+              </LeadButton>
               <Link href="/product" className="rd-btn rd-btn--outline rd-btn--app-line">
                 See what it does
               </Link>

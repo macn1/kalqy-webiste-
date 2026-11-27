@@ -1,0 +1,349 @@
+/* Lead card modal. Desktop above 1100px (image left), tablet 721px to 1100px and mobile 720px and below (image on top),
+   sized from the supplied desktop / tab / mobile mockups. */
+.lm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  overflow-y: auto;
+  background: rgba(32, 33, 58, 0.55);
+  backdrop-filter: blur(4px);
+}
+.lm-card {
+  display: grid;
+  grid-template-columns: 420px minmax(0, 1fr);
+  width: min(960px, 100%);
+  margin: auto;
+  border-radius: 28px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 40px 90px -20px rgba(13, 10, 41, 0.45);
+  color: var(--rd-ink);
+  font-family: var(--font-body);
+}
+.lm-media {
+  display: block;
+  min-height: 0;
+  background: var(--rd-lavender);
+}
+.lm-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.lm-body {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  min-width: 0;
+}
+.lm-small {
+  display: none;
+}
+.lm-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.lm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0 14px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--playful-coral);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  white-space: nowrap;
+}
+.lm-close {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  margin-top: -6px;
+  border: 0;
+  border-radius: 50%;
+  background: #f1f1f4;
+  color: var(--rd-ink);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.lm-close:hover {
+  background: #e4e4ea;
+  transform: rotate(90deg);
+}
+.lm-title {
+  margin: 16px 0 0;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+.lm-lead {
+  margin: 14px 0 20px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--rd-secondary);
+}
+.lm-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 12px;
+}
+.lm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.lm-field--wide {
+  grid-column: 1 / -1;
+}
+.lm-field label {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.lm-field input,
+.lm-field select {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid #e4e2ec;
+  border-radius: 14px;
+  background: var(--warm-cream);
+  font: inherit;
+  font-size: 15px;
+  color: var(--rd-ink);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.lm-field input::placeholder {
+  color: #7d7f90;
+}
+.lm-field input:focus,
+.lm-field select:focus {
+  outline: none;
+  border-color: var(--rd-primary);
+  box-shadow: 0 0 0 3px rgba(81, 70, 229, 0.2);
+}
+.lm-field [aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+.lm-select {
+  position: relative;
+  display: block;
+}
+.lm-select select {
+  appearance: none;
+  padding-right: 36px;
+  color: #7d7f90;
+  cursor: pointer;
+}
+.lm-select select:valid {
+  color: var(--rd-ink);
+}
+.lm-select::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  translate: 0 -25%;
+  border: 4px solid transparent;
+  border-top: 5px solid var(--rd-ink);
+  pointer-events: none;
+}
+.lm-error {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-error);
+}
+.lm-submit {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 50px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--rd-primary);
+  color: #fff;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.lm-submit:hover {
+  background: #4338d6;
+  transform: translateY(-2px);
+}
+.lm-submit:disabled {
+  opacity: 0.7;
+  cursor: progress;
+  transform: none;
+}
+.lm-foot {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.lm-note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--rd-secondary);
+}
+.lm-skip {
+  display: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--rd-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.lm-status {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--rd-secondary);
+}
+.lm-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.lm-done {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: auto 0;
+}
+.lm-done h2 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.lm-done p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--rd-secondary);
+}
+.lm-done .lm-submit {
+  padding: 0 32px;
+}
+
+/* ---------- tablet: image on top ---------- */
+@media (max-width: 1100px) {
+  .lm-desk {
+    display: none;
+  }
+  .lm-small {
+    display: inline;
+  }
+  .lm-card {
+    grid-template-columns: 1fr;
+    width: min(620px, 100%);
+  }
+  .lm-media {
+    aspect-ratio: 620 / 220;
+  }
+  .lm-skip {
+    display: inline;
+  }
+  .lm-lead {
+    font-size: 16px;
+  }
+}
+
+/* ---------- mobile ---------- */
+@media (max-width: 720px) {
+  .lm-backdrop {
+    padding: 12px;
+  }
+  .lm-card {
+    width: min(366px, 100%);
+    border-radius: 24px;
+  }
+  .lm-media {
+    aspect-ratio: 366 / 120;
+  }
+  .lm-body {
+    padding: 18px 18px 20px;
+  }
+  .lm-title {
+    margin-top: 12px;
+    font-size: 28px;
+  }
+  .lm-lead {
+    margin: 10px 0 14px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .lm-form {
+    gap: 10px 12px;
+  }
+  .lm-field--half,
+  .lm-field--half + .lm-field {
+    grid-column: auto;
+  }
+  /* name and phone stack on mobile; age and city stay side by side */
+  .lm-form > .lm-field:nth-child(-n + 2) {
+    grid-column: 1 / -1;
+  }
+  .lm-field input,
+  .lm-field select {
+    height: 40px;
+    font-size: 14px;
+  }
+  .lm-submit {
+    height: 50px;
+    font-size: 16px;
+  }
+  .lm-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lm-close:hover,
+  .lm-submit:hover {
+    transform: none;
+  }
+}
+
+/* kit buttons that open this card are <button>s wearing the link classes: reset the browser button look */
+button.rd-btn,
+button.rd-price__btn {
+  font-family: inherit;
+  cursor: pointer;
+}
+button.rd-btn:not([class*="outline"]),
+button.rd-price__btn {
+  border: 0;
+}

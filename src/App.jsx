@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Seo } from "@/components/layout/Seo";
 import { ScrollManager } from "@/components/layout/ScrollManager";
 import { MotionRoot } from "@/components/motion/MotionRoot";
+import { LeadModal } from "@/components/lead/LeadModal";
 import { site } from "@/data/site";
 import * as Home from "@/pages/Home";
 import * as About from "@/pages/About";
@@ -93,6 +94,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <LeadModal />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
     </>
   );

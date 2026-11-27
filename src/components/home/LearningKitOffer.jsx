@@ -1,5 +1,6 @@
 import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
+import { LeadButton } from "@/components/lead/LeadButton";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const items = [
@@ -115,12 +116,12 @@ export function LearningKitOffer() {
               </StaggerItem>
             ))}
           </Stagger>
-          <Link href="/product#download" className="rd-price__btn">
+          <LeadButton className="rd-price__btn">
             <span>
               Get the <span className="rd-tab-hide">Kalqy</span>
               <span className="rd-tab-only">Learning</span> Kit for ₹4,999
             </span>
-          </Link>
+          </LeadButton>
           <p className="rd-price__foot rd-tab-only">[Delivery time, payment options and offer end date]</p>
         </Reveal>
       </div>
